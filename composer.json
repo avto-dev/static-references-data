@@ -1,0 +1,16 @@
+{
+    "name": "avto-dev/static-references-data",
+    "description": "Data for static references",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Avto Develop",
+            "homepage": "https://github.com/avto-dev"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/avto-dev/static-references-data/issues",
+        "source": "https://github.com/avto-dev/static-references-data"
+    }
+}
