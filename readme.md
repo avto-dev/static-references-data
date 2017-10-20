@@ -1,14 +1,14 @@
 <p align="center">
-  <img alt="logo" src="https://habrastorage.org/webt/59/e8/90/59e89034d07c7166044069.png" width="70" height="70" />
+  <img alt="logo" src="https://habrastorage.org/webt/59/e8/90/59e89034d07c7166044069.png" width="100" height="100" />
 </p>
 
-# Статически справочники
+# Статически данные справочников
 
 ![Packagist](https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?style=flat&maxAge=30)
 ![GitHub issues](https://img.shields.io/github/issues/avto-dev/static-references-data.svg?style=flat&maxAge=30)
 [![Packagist](https://img.shields.io/packagist/l/avto-dev/static-references-data.svg)]()
 
-Данный репозиторий является хранилищем данных для статических справочников.
+Данный репозиторий является хранилищем статических данных для справочников.
 
 ## Установка
 
@@ -24,7 +24,7 @@ $ composer require avto-dev/static-references-data "1.*"
 
 ## Использование
 
-Просто читайте контент справочников, и используйте его в своих приложениях.
+Читайте контент справочников, и используйте его в своих приложениях.
 
 ## Поддержка и развитие
 
