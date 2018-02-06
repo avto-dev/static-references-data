@@ -1,1 +1,17 @@
-/vendor/
+# Composer
+composer.phar
+composer.lock
+
+# IDEs
+/nbproject
+/.idea
+
+# Vendors
+/vendor
+
+# Temp dirs & trash
+/temp
+/tmp
+/coverage
+/build
+.DS_Store

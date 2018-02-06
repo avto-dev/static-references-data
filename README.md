@@ -4,9 +4,9 @@
 
 # Статически данные справочников
 
-![Packagist](https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?style=flat&maxAge=30)
-![GitHub issues](https://img.shields.io/github/issues/avto-dev/static-references-data.svg?style=flat&maxAge=30)
-[![Packagist](https://img.shields.io/packagist/l/avto-dev/static-references-data.svg)]()
+[![Version][badge_version]][link_packagist]
+[![License][badge_license]][link_license]
+[![Build Status][badge_build_status]][link_build_status]
 
 Данный репозиторий является хранилищем статических данных для справочников.
 
@@ -22,6 +22,16 @@ $ composer require avto-dev/static-references-data "1.*"
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].
 
+После этого вы сможете удобно получать доступ к данным, например - следующим образом:
+
+```php
+use AvtoDev\StaticReferencesData\StaticReferencesData;
+
+StaticReferencesData::getAutoCategoriesData(); // [...]
+StaticReferencesData::getAutoRegionsData(); // [...]
+StaticReferencesData::getRegistrationActionsData(); // [...]
+```
+
 ## Использование
 
 Читайте контент справочников, и используйте его в своих приложениях.
@@ -36,4 +46,10 @@ $ composer require avto-dev/static-references-data "1.*"
 
 Код данного пакета распространяется под лицензией **MIT**.
 
+[badge_version]:https://img.shields.io/packagist/v/avto-dev/static-references-data.svg?style=flat&maxAge=30
+[badge_license]:https://img.shields.io/packagist/l/avto-dev/static-references-data.svg
+[badge_build_status]:https://scrutinizer-ci.com/g/avto-dev/static-references-data/badges/build.png?b=master
+[link_packagist]:https://packagist.org/packages/avto-dev/static-references-data
+[link_license]:https://github.com/avto-dev/static-references-data/blob/master/LICENSE
+[link_build_status]:https://scrutinizer-ci.com/g/avto-dev/static-references-data/build-status/master
 [getcomposer]:https://getcomposer.org/download/
