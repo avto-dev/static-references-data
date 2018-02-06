@@ -8,6 +8,15 @@ checks:
     duplication: false
 
 build:
+  environment:
+    mysql: false
+    postgresql: false
+    mongodb: false
+    elasticsearch: false
+    redis: false
+    memcached: false
+    neo4j: false
+    rabbitmq: false
   nodes:
     php56:
       environment:
