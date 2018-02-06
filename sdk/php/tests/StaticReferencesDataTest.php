@@ -22,7 +22,7 @@ class StaticReferencesDataTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->instance = new StaticReferencesData;
+        $this->instance = new StaticReferencesData();
     }
 
     /**
@@ -33,9 +33,9 @@ class StaticReferencesDataTest extends AbstractTestCase
     public function testGetRootDirectoryPath()
     {
         $this->assertEquals($this->instance->getRootDirectoryPath(), $root = $this->getRootDirPath());
-        $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass), $root);
+        $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root.DIRECTORY_SEPARATOR.'foo');
+        $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root.DIRECTORY_SEPARATOR.'foo');
+        $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass()), $root);
         $this->assertEquals($this->instance->getRootDirectoryPath([]), $root);
     }
 

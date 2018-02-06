@@ -16,6 +16,6 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function getRootDirPath()
     {
-        return realpath(__DIR__ . '/../../..');
+        return realpath(__DIR__.'/../../..');
     }
 }
