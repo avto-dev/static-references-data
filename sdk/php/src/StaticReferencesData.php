@@ -23,11 +23,11 @@ class StaticReferencesData
         static $root = null;
 
         $root = is_null($root)
-            ? realpath(__DIR__.'/../../..')
+            ? realpath(__DIR__ . '/../../..')
             : $root;
 
-        return is_string($additional_path) && !empty($additional_path)
-            ? $root.DIRECTORY_SEPARATOR.ltrim((string) $additional_path, ' \\/')
+        return is_string($additional_path) && ! empty($additional_path)
+            ? $root . DIRECTORY_SEPARATOR . ltrim((string) $additional_path, ' \\/')
             : $root;
     }
 
@@ -90,13 +90,13 @@ class StaticReferencesData
      */
     protected static function getJsonFileAsArray($file_path)
     {
-        if (!file_exists($file_path)) {
+        if (! file_exists($file_path)) {
             throw new Exception(sprintf('File "%s" was not found', $file_path));
         }
 
         $result = json_decode(file_get_contents($file_path), true);
 
-        if (!is_array($result) || json_last_error() !== JSON_ERROR_NONE) {
+        if (! is_array($result) || json_last_error() !== JSON_ERROR_NONE) {
             throw new Exception(sprintf('Cannot parse json file: "%s"', $file_path));
         }
 

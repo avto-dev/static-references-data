@@ -2,10 +2,10 @@
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-use RecursiveRegexIterator;
 use RegexIterator;
+use RecursiveRegexIterator;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 
 /**
  * Class DataFilesTest.
@@ -22,10 +22,10 @@ class DataFilesTest extends AbstractTestCase
         $root = $this->getRootDirPath();
 
         $directories = array_map('realpath', [
-            $root.'/data',
-            $root.'/data/auto_categories',
-            $root.'/data/auto_regions',
-            $root.'/data/registration_actions',
+            $root . '/data',
+            $root . '/data/auto_categories',
+            $root . '/data/auto_regions',
+            $root . '/data/registration_actions',
         ]);
 
         foreach ($directories as $directory_path) {
@@ -44,9 +44,9 @@ class DataFilesTest extends AbstractTestCase
         $root = $this->getRootDirPath();
 
         $files = array_map('realpath', [
-            $root.'/data/auto_categories/auto_categories.json',
-            $root.'/data/auto_regions/auto_regions.json',
-            $root.'/data/registration_actions/registration_actions.json',
+            $root . '/data/auto_categories/auto_categories.json',
+            $root . '/data/auto_regions/auto_regions.json',
+            $root . '/data/registration_actions/registration_actions.json',
         ]);
 
         foreach ($files as $file) {
@@ -65,21 +65,21 @@ class DataFilesTest extends AbstractTestCase
         $root = $this->getRootDirPath();
 
         $exclude_directories = array_map('realpath', [
-            $root.'/vendor',
-            $root.'/sdk',
-            $root.'/.git',
+            $root . '/vendor',
+            $root . '/sdk',
+            $root . '/.git',
         ]);
 
         $directory = new RecursiveDirectoryIterator(realpath($root));
-        $iterator = new RecursiveIteratorIterator($directory);
-        $regex = new RegexIterator($iterator, '~^.+\.json$~i', RecursiveRegexIterator::GET_MATCH);
-        $counter = 0;
+        $iterator  = new RecursiveIteratorIterator($directory);
+        $regex     = new RegexIterator($iterator, '~^.+\.json$~i', RecursiveRegexIterator::GET_MATCH);
+        $counter   = 0;
 
         foreach ($regex as $result) {
             foreach ($result as $file_path) {
                 // Skip excluded directory
                 foreach ($exclude_directories as $exclude_directory_path) {
-                    if (strpos($file_path, $exclude_directory_path) === 0) {
+                    if (mb_strpos($file_path, $exclude_directory_path) === 0) {
                         continue 2;
                     }
                 }

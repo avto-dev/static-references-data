@@ -2,8 +2,8 @@
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use AvtoDev\StaticReferencesData\StaticReferencesData;
 use Exception;
+use AvtoDev\StaticReferencesData\StaticReferencesData;
 
 /**
  * Class StaticReferencesDataTest.
@@ -26,6 +26,16 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
+     * {@inheritdoc}
+     */
+    protected function tearDown()
+    {
+        unset($this->instance);
+
+        parent::tearDown();
+    }
+
+    /**
      * Тест метода, возвращающего базовый путь к директории спецификаций.
      *
      * @return void
@@ -33,8 +43,8 @@ class StaticReferencesDataTest extends AbstractTestCase
     public function testGetRootDirectoryPath()
     {
         $this->assertEquals($this->instance->getRootDirectoryPath(), $root = $this->getRootDirPath());
-        $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root.DIRECTORY_SEPARATOR.'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root.DIRECTORY_SEPARATOR.'foo');
+        $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
+        $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
         $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass()), $root);
         $this->assertEquals($this->instance->getRootDirectoryPath([]), $root);
     }
@@ -115,15 +125,5 @@ class StaticReferencesDataTest extends AbstractTestCase
         $this->expectException(Exception::class);
 
         $this->instance->getRegistrationActionsData('foo bar');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function tearDown()
-    {
-        unset($this->instance);
-
-        parent::tearDown();
     }
 }
