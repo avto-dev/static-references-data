@@ -7,6 +7,7 @@
 [![Version][badge_version]][link_packagist]
 [![License][badge_license]][link_license]
 [![Build Status][badge_build_status]][link_build_status]
+[![Downloads][badge_downloads]][link_packagist]
 
 Данный репозиторий является хранилищем статических данных для справочников.
 
@@ -49,6 +50,7 @@ StaticReferencesData::getRegistrationActionsData(); // [...]
 [badge_version]:https://img.shields.io/packagist/v/avto-dev/static-references-data.svg?style=flat&maxAge=30
 [badge_license]:https://img.shields.io/packagist/l/avto-dev/static-references-data.svg
 [badge_build_status]:https://scrutinizer-ci.com/g/avto-dev/static-references-data/badges/build.png?b=master
+[badge_downloads]:https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?style=flat&maxAge=30
 [link_packagist]:https://packagist.org/packages/avto-dev/static-references-data
 [link_license]:https://github.com/avto-dev/static-references-data/blob/master/LICENSE
 [link_build_status]:https://scrutinizer-ci.com/g/avto-dev/static-references-data/build-status/master
