@@ -16,10 +16,7 @@ build:
       tests:
         override:
           -
-            command: 'vendor/bin/phpunit --coverage-clover=clover-file'
-            coverage:
-              file: 'clover-file'
-              format: 'clover'
+            command: 'composer test'
     php70:
       environment:
         php: 7.0
@@ -27,10 +24,7 @@ build:
       tests:
         override:
           -
-            command: 'vendor/bin/phpunit --coverage-clover=clover-file'
-            coverage:
-              file: 'clover-file'
-              format: 'clover'
+            command: 'composer test'
     php71:
       environment:
         php: 7.1
@@ -38,8 +32,4 @@ build:
       tests:
         override:
           -
-            command: 'vendor/bin/phpunit --coverage-clover=clover-file'
-            coverage:
-              file: 'clover-file'
-              format: 'clover'
-
+            command: 'composer test'
