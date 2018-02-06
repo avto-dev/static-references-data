@@ -25,7 +25,10 @@ build:
       tests:
         override:
           -
-            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml'
+            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml --coverage-clover=clover-file'
+            coverage:
+              file: 'clover-file'
+              format: 'clover'
     php70:
       environment:
         php: 7.0
@@ -33,7 +36,10 @@ build:
       tests:
         override:
           -
-            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml'
+            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml --coverage-clover=clover-file'
+            coverage:
+              file: 'clover-file'
+              format: 'clover'
     php71:
       environment:
         php: 7.1
@@ -41,4 +47,7 @@ build:
       tests:
         override:
           -
-            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml'
+            command: './vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml --coverage-clover=clover-file'
+            coverage:
+              file: 'clover-file'
+              format: 'clover'
