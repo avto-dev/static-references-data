@@ -2,11 +2,6 @@ filter:
   excluded_paths:
     - 'sdk/php/tests/*'
 
-checks:
-  php:
-    code_rating: true
-    duplication: false
-
 build:
   environment:
     mysql: false
@@ -17,6 +12,7 @@ build:
     memcached: false
     neo4j: false
     rabbitmq: false
+
   nodes:
     php56:
       environment:
@@ -43,6 +39,17 @@ build:
     php71:
       environment:
         php: 7.1
+      tests:
+        override:
+          -
+            command: 'composer test-cover'
+            coverage:
+              file: './sdk/php/coverage/clover.xml'
+              format: 'clover'
+
+    php72:
+      environment:
+        php: 7.2
       tests:
         override:
           -
