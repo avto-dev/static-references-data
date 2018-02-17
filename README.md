@@ -49,7 +49,7 @@ StaticReferencesData::getRegistrationActionsData(); // [...]
 Код данного пакета распространяется под лицензией **MIT**.
 
 [badge_version]:https://img.shields.io/packagist/v/avto-dev/static-references-data.svg?style=flat&maxAge=30
-[badge_license]:https://img.shields.io/packagist/l/avto-dev/static-references-data.svg
+[badge_license]:https://img.shields.io/packagist/l/avto-dev/static-references-data.svg?style=flat&maxAge=30
 [badge_build_status]:https://scrutinizer-ci.com/g/avto-dev/static-references-data/badges/build.png?b=master
 [badge_issues]:https://img.shields.io/github/issues/avto-dev/static-references-data.svg?style=flat&maxAge=30
 [badge_downloads]:https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?style=flat&maxAge=30
