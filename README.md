@@ -19,7 +19,7 @@
 Для установки данного пакета выполните в терминале следующую команду:
 
 ```shell
-$ composer require avto-dev/static-references-data "^1.1"
+$ composer require avto-dev/static-references-data "^2.0"
 ```
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].
@@ -28,10 +28,6 @@ $ composer require avto-dev/static-references-data "^1.1"
 
 ```php
 use AvtoDev\StaticReferencesData\StaticReferencesData;
-
-StaticReferencesData::getAutoCategoriesData(); // Warning - Deprecated
-StaticReferencesData::getAutoRegionsData(); // Warning - Deprecated
-StaticReferencesData::getRegistrationActionsData(); // Warning - Deprecated
 
 StaticReferencesData::getAutoCategories();
 StaticReferencesData::getAutoRegions();

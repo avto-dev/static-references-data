@@ -33,24 +33,6 @@ class StaticReferencesData
     }
 
     /**
-     * Возвращает данные справочника "Категории ТС".
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
-     *
-     * @deprecated 2.0.0 No longer used by internal code and not recommended.
-     *
-     * @return array[]
-     */
-    public static function getAutoCategoriesData($file_name = 'auto_categories.json')
-    {
-        return static::getJsonFileAsArray(
-            static::getRootDirectoryPath(sprintf('/data/auto_categories/%s', $file_name))
-        );
-    }
-
-    /**
      * Returns static reference named 'auto categories'.
      *
      * @param string $file_name
@@ -63,24 +45,6 @@ class StaticReferencesData
     {
         return new StaticReference(
             static::getRootDirectoryPath(sprintf('/data/auto_categories/%s', $file_name))
-        );
-    }
-
-    /**
-     * Возвращает данные справочника "Данные по регионам".
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
-     *
-     * @deprecated 2.0.0 No longer used by internal code and not recommended.
-     *
-     * @return array[]
-     */
-    public static function getAutoRegionsData($file_name = 'auto_regions.json')
-    {
-        return static::getJsonFileAsArray(
-            static::getRootDirectoryPath(sprintf('/data/auto_regions/%s', $file_name))
         );
     }
 
@@ -101,24 +65,6 @@ class StaticReferencesData
     }
 
     /**
-     * Возвращает данные справочника "Регистрационные действия".
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
-     *
-     * @deprecated 2.0.0 No longer used by internal code and not recommended.
-     *
-     * @return array[]
-     */
-    public static function getRegistrationActionsData($file_name = 'registration_actions.json')
-    {
-        return static::getJsonFileAsArray(
-            static::getRootDirectoryPath(sprintf('/data/registration_actions/%s', $file_name))
-        );
-    }
-
-    /**
      * Returns static reference named 'registration actions'.
      *
      * @param string $file_name
@@ -132,31 +78,5 @@ class StaticReferencesData
         return new StaticReference(
             static::getRootDirectoryPath(sprintf('/data/registration_actions/%s', $file_name))
         );
-    }
-
-    /**
-     * Возвращает контент json файла в виде php-массива.
-     *
-     * @param string $file_path
-     *
-     * @throws Exception
-     *
-     * @deprecated 2.0.0 No longer used by internal code and not recommended.
-     *
-     * @return array
-     */
-    protected static function getJsonFileAsArray($file_path)
-    {
-        if (! file_exists($file_path)) {
-            throw new Exception(sprintf('File "%s" was not found', $file_path));
-        }
-
-        $result = json_decode(file_get_contents($file_path), true);
-
-        if (! is_array($result) || json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception(sprintf('Cannot parse json file: "%s"', $file_path));
-        }
-
-        return $result;
     }
 }
