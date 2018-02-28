@@ -29,9 +29,13 @@ $ composer require avto-dev/static-references-data "^1.1"
 ```php
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
-StaticReferencesData::getAutoCategoriesData(); // [...]
-StaticReferencesData::getAutoRegionsData(); // [...]
-StaticReferencesData::getRegistrationActionsData(); // [...]
+StaticReferencesData::getAutoCategoriesData(); // Warning - Deprecated
+StaticReferencesData::getAutoRegionsData(); // Warning - Deprecated
+StaticReferencesData::getRegistrationActionsData(); // Warning - Deprecated
+
+StaticReferencesData::getAutoCategories();
+StaticReferencesData::getAutoRegions();
+StaticReferencesData::getRegistrationActions();
 ```
 
 ## Использование
