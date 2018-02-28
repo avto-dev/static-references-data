@@ -2,6 +2,7 @@
 
 namespace AvtoDev\StaticReferencesData;
 
+use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use Exception;
 
 /**
@@ -38,11 +39,29 @@ class StaticReferencesData
      *
      * @throws Exception
      *
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return array[]
      */
     public static function getAutoCategoriesData($file_name = 'auto_categories.json')
     {
         return static::getJsonFileAsArray(
+            static::getRootDirectoryPath(sprintf('/data/auto_categories/%s', $file_name))
+        );
+    }
+
+    /**
+     * Returns static reference named 'auto categories'.
+     *
+     * @param string $file_name
+     *
+     * @return StaticReference
+     *
+     * @throws Exception
+     */
+    public static function getAutoCategories($file_name = 'auto_categories.json')
+    {
+        return new StaticReference(
             static::getRootDirectoryPath(sprintf('/data/auto_categories/%s', $file_name))
         );
     }
@@ -54,11 +73,29 @@ class StaticReferencesData
      *
      * @throws Exception
      *
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return array[]
      */
     public static function getAutoRegionsData($file_name = 'auto_regions.json')
     {
         return static::getJsonFileAsArray(
+            static::getRootDirectoryPath(sprintf('/data/auto_regions/%s', $file_name))
+        );
+    }
+
+    /**
+     * Returns static reference named 'auto regions'.
+     *
+     * @param string $file_name
+     *
+     * @return StaticReference
+     *
+     * @throws Exception
+     */
+    public static function getAutoRegions($file_name = 'auto_regions.json')
+    {
+        return new StaticReference(
             static::getRootDirectoryPath(sprintf('/data/auto_regions/%s', $file_name))
         );
     }
@@ -70,6 +107,8 @@ class StaticReferencesData
      *
      * @throws Exception
      *
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return array[]
      */
     public static function getRegistrationActionsData($file_name = 'registration_actions.json')
@@ -80,11 +119,29 @@ class StaticReferencesData
     }
 
     /**
+     * Returns static reference named 'registration actions'.
+     *
+     * @param string $file_name
+     *
+     * @return StaticReference
+     *
+     * @throws Exception
+     */
+    public static function getRegistrationActions($file_name = 'registration_actions.json')
+    {
+        return new StaticReference(
+            static::getRootDirectoryPath(sprintf('/data/registration_actions/%s', $file_name))
+        );
+    }
+
+    /**
      * Возвращает контент json файла в виде php-массива.
      *
      * @param string $file_path
      *
      * @throws Exception
+     *
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
      *
      * @return array
      */

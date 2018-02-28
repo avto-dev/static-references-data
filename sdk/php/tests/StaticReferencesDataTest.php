@@ -50,6 +50,8 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return void
      */
     public function testGetAutoCategoriesData()
@@ -66,6 +68,8 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return void
      */
     public function testGetAutoCategoriesDataWithInvalidFileName()
@@ -76,6 +80,34 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
+     * @return void
+     */
+    public function testGetAutoCategories()
+    {
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($this->instance->getRootDirectoryPath(
+                    '/data/auto_categories/auto_categories.json'
+                )),
+                true
+            ),
+            $this->instance->getAutoCategories()->getContent()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetAutoCategoriesWithInvalidFileName()
+    {
+        $this->expectException(Exception::class);
+
+        $this->instance->getAutoCategories('foo bar');
+    }
+
+    /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return void
      */
     public function testGetAutoRegionsData()
@@ -94,6 +126,24 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * @return void
      */
+    public function testGetAutoRegions()
+    {
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($this->instance->getRootDirectoryPath(
+                    '/data/auto_regions/auto_regions.json'
+                )),
+                true
+            ),
+            $this->instance->getAutoRegions()->getContent()
+        );
+    }
+
+    /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
+     * @return void
+     */
     public function testGetAutoRegionsDataWithInvalidFileName()
     {
         $this->expectException(Exception::class);
@@ -102,6 +152,18 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
+     * @return void
+     */
+    public function testGetAutoRegionsWithInvalidFileName()
+    {
+        $this->expectException(Exception::class);
+
+        $this->instance->getAutoRegions('foo bar');
+    }
+
+    /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
      * @return void
      */
     public function testGetRegistrationActionsData()
@@ -120,10 +182,38 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * @return void
      */
+    public function testGetRegistrationActions()
+    {
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($this->instance->getRootDirectoryPath(
+                    '/data/registration_actions/registration_actions.json'
+                )),
+                true
+            ),
+            $this->instance->getRegistrationActions()->getContent()
+        );
+    }
+
+    /**
+     * @deprecated 2.0.0 No longer used by internal code and not recommended.
+     *
+     * @return void
+     */
     public function testGetRegistrationActionsDataWithInvalidFileName()
     {
         $this->expectException(Exception::class);
 
         $this->instance->getRegistrationActionsData('foo bar');
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetRegistrationActionsWithInvalidFileName()
+    {
+        $this->expectException(Exception::class);
+
+        $this->instance->getRegistrationActions('foo bar');
     }
 }
