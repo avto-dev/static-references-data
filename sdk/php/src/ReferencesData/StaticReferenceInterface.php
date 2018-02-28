@@ -24,9 +24,9 @@ interface StaticReferenceInterface
     /**
      * Returns source content as an array.
      *
-     * @return array|mixed[]
-     *
      * @throws \Exception
+     *
+     * @return array|mixed[]
      */
     public function getContent();
 }

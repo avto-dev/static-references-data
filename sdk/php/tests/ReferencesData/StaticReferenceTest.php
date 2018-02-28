@@ -3,9 +3,9 @@
 namespace AvtoDev\StaticReferencesData\Tests\ReferencesData;
 
 use Exception;
+use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
-use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 
 /**
  * Class StaticReferenceTest.
@@ -61,7 +61,7 @@ class StaticReferenceTest extends AbstractTestCase
         );
 
         $this->assertNotEmpty($hash = $instance->getHash());
-        $this->assertTrue(strlen($hash) >= 8);
+        $this->assertTrue(mb_strlen($hash) >= 8);
         $this->assertRegExp('~[a-f0-9]~', $hash);
         $this->assertEquals($hash, $instance->getHash());
 

@@ -2,8 +2,8 @@
 
 namespace AvtoDev\StaticReferencesData;
 
-use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use Exception;
+use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 
 /**
  * Class StaticReferencesData.
@@ -55,9 +55,9 @@ class StaticReferencesData
      *
      * @param string $file_name
      *
-     * @return StaticReference
-     *
      * @throws Exception
+     *
+     * @return StaticReference
      */
     public static function getAutoCategories($file_name = 'auto_categories.json')
     {
@@ -89,9 +89,9 @@ class StaticReferencesData
      *
      * @param string $file_name
      *
-     * @return StaticReference
-     *
      * @throws Exception
+     *
+     * @return StaticReference
      */
     public static function getAutoRegions($file_name = 'auto_regions.json')
     {
@@ -123,9 +123,9 @@ class StaticReferencesData
      *
      * @param string $file_name
      *
-     * @return StaticReference
-     *
      * @throws Exception
+     *
+     * @return StaticReference
      */
     public static function getRegistrationActions($file_name = 'registration_actions.json')
     {
