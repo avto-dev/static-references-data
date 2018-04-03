@@ -12,38 +12,6 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
-    {
-        return $this->getRootDirPath() . '/data/auto_regions';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getFilePath()
-    {
-        return $this->getRootDirPath() . '/data/auto_regions/auto_regions.json';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getReferenceContent()
-    {
-        return $this->instance->getAutoRegions()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
-    {
-        return 86;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function testFileStricture()
     {
         foreach ($this->getReferenceContent() as $item) {
@@ -76,5 +44,37 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
                 $this->assertInternalType('int', $gibdd_code);
             }
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath()
+    {
+        return $this->getRootDirPath() . '/data/auto_regions';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getFilePath()
+    {
+        return $this->getRootDirPath() . '/data/auto_regions/auto_regions.json';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getReferenceContent()
+    {
+        return $this->instance->getAutoRegions()->getContent();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getExpectedEntityCount()
+    {
+        return 86;
     }
 }

@@ -79,6 +79,13 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
+     * Проверяет структуру файлов.
+     *
+     * @return void
+     */
+    abstract public function testFileStricture();
+
+    /**
      * Получить путь до дериктории в которой лежит файл.
      *
      * @return string
@@ -105,11 +112,4 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
      * @return array
      */
     abstract protected function getReferenceContent();
-
-    /**
-     * Проверяет структуру файлов.
-     *
-     * @return void
-     */
-    abstract public function testFileStricture();
 }

@@ -12,6 +12,20 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
+    public function testFileStricture()
+    {
+        foreach ($this->getReferenceContent() as $item) {
+            $this->assertArrayHasKey('code', $item);
+            $this->assertInternalType('string', $item['code']);
+
+            $this->assertArrayHasKey('description', $item);
+            $this->assertInternalType('string', $item['description']);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function getDirectoryPath()
     {
         return $this->getRootDirPath() . '/data/auto_categories';
@@ -39,19 +53,5 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     protected function getExpectedEntityCount()
     {
         return 16;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function testFileStricture()
-    {
-        foreach ($this->getReferenceContent() as $item) {
-            $this->assertArrayHasKey('code', $item);
-            $this->assertInternalType('string', $item['code']);
-
-            $this->assertArrayHasKey('description', $item);
-            $this->assertInternalType('string', $item['description']);
-        }
     }
 }

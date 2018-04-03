@@ -12,6 +12,24 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
+    public function testFileStricture()
+    {
+        foreach ($this->getReferenceContent() as $item) {
+            $this->assertArrayHasKey('description', $item);
+            $this->assertInternalType('string', $item['description']);
+
+            $this->assertArrayHasKey('codes', $item);
+            $this->assertInternalType('array', $item['codes']);
+
+            foreach ($item['codes'] as $reg_action_code) {
+                $this->assertInternalType('int', $reg_action_code);
+            }
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function getDirectoryPath()
     {
         return $this->getRootDirPath() . '/data/registration_actions';
@@ -39,23 +57,5 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     protected function getExpectedEntityCount()
     {
         return 74;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function testFileStricture()
-    {
-        foreach ($this->getReferenceContent() as $item) {
-            $this->assertArrayHasKey('description', $item);
-            $this->assertInternalType('string', $item['description']);
-
-            $this->assertArrayHasKey('codes', $item);
-            $this->assertInternalType('array', $item['codes']);
-
-            foreach ($item['codes'] as $reg_action_code) {
-                $this->assertInternalType('int', $reg_action_code);
-            }
-        }
     }
 }
