@@ -24,4 +24,38 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     {
         return $this->getRootDirPath() . '/data/registration_actions/registration_actions.json';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getReferenceContent()
+    {
+        return $this->instance->getRegistrationActions()->getContent();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getExpectedEntityCount()
+    {
+        return 74;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function testFileStricture()
+    {
+        foreach ($this->getReferenceContent() as $item) {
+            $this->assertArrayHasKey('description', $item);
+            $this->assertInternalType('string', $item['description']);
+
+            $this->assertArrayHasKey('codes', $item);
+            $this->assertInternalType('array', $item['codes']);
+
+            foreach ($item['codes'] as $reg_action_code) {
+                $this->assertInternalType('int', $reg_action_code);
+            }
+        }
+    }
 }

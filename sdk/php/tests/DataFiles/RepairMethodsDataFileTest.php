@@ -24,4 +24,38 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     {
         return $this->getRootDirPath() . '/data/repair_methods/repair_methods.json';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getReferenceContent()
+    {
+        return $this->instance->getRepairMethods()->getContent();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getExpectedEntityCount()
+    {
+        return 19;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function testFileStricture()
+    {
+        foreach ($this->getReferenceContent() as $item) {
+            $this->assertArrayHasKey('description', $item);
+            $this->assertTrue(is_string($item['description']));
+
+            $this->assertArrayHasKey('codes', $item);
+            $this->assertInternalType('array', $item['codes']);
+
+            foreach ($item['codes'] as $repair_method_code) {
+                $this->assertInternalType('string', $repair_method_code);
+            }
+        }
+    }
 }

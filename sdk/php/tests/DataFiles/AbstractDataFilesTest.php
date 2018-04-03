@@ -2,6 +2,7 @@
 
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
+use AvtoDev\StaticReferencesData\StaticReferencesData;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 
 /**
@@ -9,6 +10,31 @@ use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
  */
 abstract class AbstractDataFilesTest extends AbstractTestCase
 {
+    /**
+     * @var StaticReferencesData
+     */
+    protected $instance;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->instance = new StaticReferencesData;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function tearDown()
+    {
+        unset($this->instance);
+
+        parent::tearDown();
+    }
+
     /**
      * Тест структуры директорий.
      *
@@ -34,12 +60,22 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
      *
      * @return void
      */
-    public function testFilesStructure()
+    public function testFileExists()
     {
         $file = realpath($this->getFilePath());
 
         $this->assertFileExists($file);
         $this->assertFileIsReadable($file);
+    }
+
+    /**
+     * Тестируем колличество записей в справочнике.
+     *
+     * @return void
+     */
+    public function testEntityCount()
+    {
+        $this->assertGreaterThanOrEqual($this->getExpectedEntityCount(), count($this->getReferenceContent()));
     }
 
     /**
@@ -55,4 +91,25 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
      * @return string
      */
     abstract protected function getFilePath();
+
+    /**
+     * Возвращает ожидаемое колличество записей в справочнике.
+     *
+     * @return int
+     */
+    abstract protected function getExpectedEntityCount();
+
+    /**
+     * Возвращает текущее колличество записей в справочнике.
+     *
+     * @return array
+     */
+    abstract protected function getReferenceContent();
+
+    /**
+     * Проверяет структуру файлов.
+     *
+     * @return void
+     */
+    abstract public function testFileStricture();
 }
