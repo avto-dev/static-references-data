@@ -22,7 +22,7 @@ class StaticReferencesDataTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->instance = new StaticReferencesData();
+        $this->instance = new StaticReferencesData;
     }
 
     /**
@@ -45,7 +45,7 @@ class StaticReferencesDataTest extends AbstractTestCase
         $this->assertEquals($this->instance->getRootDirectoryPath(), $root = $this->getRootDirPath());
         $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
         $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass()), $root);
+        $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass), $root);
         $this->assertEquals($this->instance->getRootDirectoryPath([]), $root);
     }
 
@@ -125,5 +125,31 @@ class StaticReferencesDataTest extends AbstractTestCase
         $this->expectException(Exception::class);
 
         $this->instance->getRegistrationActions('foo bar');
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetRepairMethods()
+    {
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($this->instance->getRootDirectoryPath(
+                    '/data/repair_methods/repair_methods.json'
+                )),
+                true
+            ),
+            $this->instance->getRepairMethods()->getContent()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetRepairMethodsWithInvalidFileName()
+    {
+        $this->expectException(Exception::class);
+
+        $this->instance->getRepairMethods('foo bar');
     }
 }
