@@ -58,4 +58,31 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     {
         return 19;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getEntities()
+    {
+        return [
+            [
+                "codes"       => [
+                    "E",
+                ],
+                "description" => "Замена",
+            ],
+            [
+                "codes"       => [
+                    "ET",
+                ],
+                "description" => "Частичная замена",
+            ],
+            [
+                "codes"       => [
+                    "S",
+                ],
+                "description" => "Прочее",
+            ],
+        ];
+    }
 }

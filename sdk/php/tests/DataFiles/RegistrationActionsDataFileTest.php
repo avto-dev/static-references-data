@@ -58,4 +58,31 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     {
         return 74;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getEntities()
+    {
+        return [
+            [
+                "codes"       => [
+                    11,
+                ],
+                "description" => "Первичная регистрация",
+            ],
+            [
+                "codes"       => [
+                    12,
+                ],
+                "description" => "Регистрация снятого с учета ТС",
+            ],
+            [
+                "codes"       => [
+                    94,
+                ],
+                "description" => "Изменение собственника по сделкам, произведенным в любой форме с сохранением государственных регистрационных знаков",
+            ],
+        ];
+    }
 }

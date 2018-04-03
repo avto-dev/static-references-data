@@ -77,4 +77,53 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     {
         return 86;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getEntities()
+    {
+        return [
+            [
+                "title"          => "Республика Адыгея",
+                "short"          => [
+                    "Адыгея",
+                ],
+                "code"           => 1,
+                "gibdd"          => [
+                    1,
+                ],
+                "okato"          => "79",
+                "code_iso_31662" => "RU-AD",
+                "type"           => "Республика",
+            ],
+            [
+                "title"          => "Республика Алтай",
+                "short"          => [
+                    "Алтай",
+                ],
+                "code"           => 4,
+                "gibdd"          => [
+                    4,
+                ],
+                "okato"          => "84",
+                "code_iso_31662" => "RU-AL",
+                "type"           => "Республика",
+            ],
+            [
+                "title"          => "Байконур",
+                "short"          => [
+                    "Байконур",
+                    "Ленинск",
+                ],
+                "code"           => 99,
+                "gibdd"          => [
+                    94,
+                ],
+                "okato"          => "55",
+                "code_iso_31662" => "KZ-BAY",
+                "type"           => "Город федерального значения",
+            ],
+        ];
+    }
 }

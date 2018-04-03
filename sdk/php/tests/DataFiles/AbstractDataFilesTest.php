@@ -79,6 +79,18 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
+     * Проверяет что в справочнике есть значение.
+     *
+     * @return void
+     */
+    public function testEntityPresents()
+    {
+        foreach ($this->getEntities() as $entity) {
+            $this->assertContains($entity, $this->getReferenceContent());
+        }
+    }
+
+    /**
      * Проверяет структуру файлов.
      *
      * @return void
@@ -112,4 +124,11 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
      * @return array
      */
     abstract protected function getReferenceContent();
+
+    /**
+     * Возвращает массив значений который должен присутствовать в справочнике.
+     *
+     * @return array
+     */
+    abstract protected function getEntities();
 }

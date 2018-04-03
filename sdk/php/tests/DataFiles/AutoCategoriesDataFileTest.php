@@ -54,4 +54,26 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     {
         return 16;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getEntities()
+    {
+        return [
+            [
+                "code"        => "A",
+                "description" => "Мотоциклы",
+            ],
+            [
+                "code"        => "A1",
+                "description" => "Легкие мотоциклы",
+            ],
+            [
+                "code"        => "TB",
+                "description" => "Троллейбусы",
+
+            ],
+        ];
+    }
 }
