@@ -66,22 +66,22 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     {
         return [
             [
-                "codes"       => [
-                    "E",
+                'codes'       => [
+                    'E',
                 ],
-                "description" => "Замена",
+                'description' => 'Замена',
             ],
             [
-                "codes"       => [
-                    "ET",
+                'codes'       => [
+                    'ET',
                 ],
-                "description" => "Частичная замена",
+                'description' => 'Частичная замена',
             ],
             [
-                "codes"       => [
-                    "S",
+                'codes'       => [
+                    'S',
                 ],
-                "description" => "Прочее",
+                'description' => 'Прочее',
             ],
         ];
     }

@@ -62,16 +62,16 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     {
         return [
             [
-                "code"        => "A",
-                "description" => "Мотоциклы",
+                'code'        => 'A',
+                'description' => 'Мотоциклы',
             ],
             [
-                "code"        => "A1",
-                "description" => "Легкие мотоциклы",
+                'code'        => 'A1',
+                'description' => 'Легкие мотоциклы',
             ],
             [
-                "code"        => "TB",
-                "description" => "Троллейбусы",
+                'code'        => 'TB',
+                'description' => 'Троллейбусы',
 
             ],
         ];
