@@ -26,6 +26,7 @@ class DataFilesTest extends AbstractTestCase
             $root . '/data/auto_categories',
             $root . '/data/auto_regions',
             $root . '/data/registration_actions',
+            $root . '/data/repair_methods',
         ]);
 
         foreach ($directories as $directory_path) {
@@ -47,6 +48,7 @@ class DataFilesTest extends AbstractTestCase
             $root . '/data/auto_categories/auto_categories.json',
             $root . '/data/auto_regions/auto_regions.json',
             $root . '/data/registration_actions/registration_actions.json',
+            $root . '/data/repair_methods/repair_methods.json',
         ]);
 
         foreach ($files as $file) {
