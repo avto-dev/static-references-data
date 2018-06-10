@@ -44,7 +44,9 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
      */
     protected function getReferenceContent()
     {
-        return $this->instance->getAutoCategories()->getContent();
+        $instance = $this->instance; // PHP 5.6
+
+        return $instance::getAutoCategories()->getContent();
     }
 
     /**

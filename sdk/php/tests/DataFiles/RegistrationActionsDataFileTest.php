@@ -48,7 +48,9 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
      */
     protected function getReferenceContent()
     {
-        return $this->instance->getRegistrationActions()->getContent();
+        $instance = $this->instance; // PHP 5.6
+
+        return $instance::getRegistrationActions()->getContent();
     }
 
     /**

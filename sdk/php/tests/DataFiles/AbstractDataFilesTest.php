@@ -5,9 +5,6 @@ namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 
-/**
- * Class AbstractDataFilesTest.
- */
 abstract class AbstractDataFilesTest extends AbstractTestCase
 {
     /**

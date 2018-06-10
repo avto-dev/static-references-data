@@ -7,9 +7,6 @@ use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
 
-/**
- * Class StaticReferenceTest.
- */
 class StaticReferenceTest extends AbstractTestCase
 {
     /**
@@ -67,7 +64,7 @@ class StaticReferenceTest extends AbstractTestCase
 
         $this->assertEquals($path, $instance->getFilePath());
 
-        $this->assertTrue(is_array($content = $instance->getContent()));
+        $this->assertInternalType('array', $content = $instance->getContent());
         $this->assertNotEmpty($content);
         $this->assertEquals($content, $instance->getContent());
     }

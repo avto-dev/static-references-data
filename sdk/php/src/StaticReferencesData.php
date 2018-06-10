@@ -5,11 +5,6 @@ namespace AvtoDev\StaticReferencesData;
 use Exception;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 
-/**
- * Class StaticReferencesData.
- *
- * Класс, упрощающий доступ к файлам статических данных.
- */
 class StaticReferencesData
 {
     /**
@@ -21,13 +16,9 @@ class StaticReferencesData
      */
     public static function getRootDirectoryPath($additional_path = null)
     {
-        static $root = null;
+        $root = \realpath(__DIR__ . '/../../../');
 
-        $root = is_null($root)
-            ? realpath(__DIR__ . '/../../..')
-            : $root;
-
-        return is_string($additional_path) && ! empty($additional_path)
+        return \is_string($additional_path) && ! empty($additional_path)
             ? $root . DIRECTORY_SEPARATOR . ltrim((string) $additional_path, ' \\/')
             : $root;
     }

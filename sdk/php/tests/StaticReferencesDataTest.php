@@ -5,9 +5,6 @@ namespace AvtoDev\StaticReferencesData\Tests;
 use Exception;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
-/**
- * Class StaticReferencesDataTest.
- */
 class StaticReferencesDataTest extends AbstractTestCase
 {
     /**
@@ -42,11 +39,13 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetRootDirectoryPath()
     {
-        $this->assertEquals($this->instance->getRootDirectoryPath(), $root = $this->getRootDirPath());
-        $this->assertEquals($this->instance->getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($this->instance->getRootDirectoryPath(new \stdClass), $root);
-        $this->assertEquals($this->instance->getRootDirectoryPath([]), $root);
+        $instance = $this->instance; // PHP 5.6
+
+        $this->assertEquals($instance::getRootDirectoryPath(), $root = $this->getRootDirPath());
+        $this->assertEquals($instance::getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
+        $this->assertEquals($instance::getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
+        $this->assertEquals($instance::getRootDirectoryPath(new \stdClass), $root);
+        $this->assertEquals($instance::getRootDirectoryPath([]), $root);
     }
 
     /**
@@ -54,14 +53,16 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetAutoCategories()
     {
+        $instance = $this->instance; // PHP 5.6
+        
         $this->assertEquals(
             json_decode(
-                file_get_contents($this->instance->getRootDirectoryPath(
+                file_get_contents($instance::getRootDirectoryPath(
                     '/data/auto_categories/auto_categories.json'
                 )),
                 true
             ),
-            $this->instance->getAutoCategories()->getContent()
+            $instance::getAutoCategories()->getContent()
         );
     }
 
@@ -70,9 +71,11 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetAutoCategoriesWithInvalidFileName()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->expectException(Exception::class);
 
-        $this->instance->getAutoCategories('foo bar');
+        $instance::getAutoCategories('foo bar');
     }
 
     /**
@@ -80,14 +83,16 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetAutoRegions()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->assertEquals(
             json_decode(
-                file_get_contents($this->instance->getRootDirectoryPath(
+                file_get_contents($instance::getRootDirectoryPath(
                     '/data/auto_regions/auto_regions.json'
                 )),
                 true
             ),
-            $this->instance->getAutoRegions()->getContent()
+            $instance::getAutoRegions()->getContent()
         );
     }
 
@@ -96,9 +101,11 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetAutoRegionsWithInvalidFileName()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->expectException(Exception::class);
 
-        $this->instance->getAutoRegions('foo bar');
+        $instance::getAutoRegions('foo bar');
     }
 
     /**
@@ -106,14 +113,16 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetRegistrationActions()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->assertEquals(
             json_decode(
-                file_get_contents($this->instance->getRootDirectoryPath(
+                file_get_contents($instance::getRootDirectoryPath(
                     '/data/registration_actions/registration_actions.json'
                 )),
                 true
             ),
-            $this->instance->getRegistrationActions()->getContent()
+            $instance::getRegistrationActions()->getContent()
         );
     }
 
@@ -122,9 +131,11 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetRegistrationActionsWithInvalidFileName()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->expectException(Exception::class);
 
-        $this->instance->getRegistrationActions('foo bar');
+        $instance::getRegistrationActions('foo bar');
     }
 
     /**
@@ -132,14 +143,16 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetRepairMethods()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->assertEquals(
             json_decode(
-                file_get_contents($this->instance->getRootDirectoryPath(
+                file_get_contents($instance::getRootDirectoryPath(
                     '/data/repair_methods/repair_methods.json'
                 )),
                 true
             ),
-            $this->instance->getRepairMethods()->getContent()
+            $instance::getRepairMethods()->getContent()
         );
     }
 
@@ -148,8 +161,10 @@ class StaticReferencesDataTest extends AbstractTestCase
      */
     public function testGetRepairMethodsWithInvalidFileName()
     {
+        $instance = $this->instance; // PHP 5.6
+
         $this->expectException(Exception::class);
 
-        $this->instance->getRepairMethods('foo bar');
+        $instance::getRepairMethods('foo bar');
     }
 }

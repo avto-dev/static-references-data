@@ -48,7 +48,9 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
      */
     protected function getReferenceContent()
     {
-        return $this->instance->getRepairMethods()->getContent();
+        $instance = $this->instance; // PHP 5.6
+
+        return $instance::getRepairMethods()->getContent();
     }
 
     /**

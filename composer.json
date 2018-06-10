@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "ext-mbstring": "*",
-        "phpunit/phpunit": "~5.7 || ^6.4 || ~7.0",
+        "phpunit/phpunit": "~5.7.10 || ^6.4 || ~7.0",
         "symfony/var-dumper": "~3.2 || ^4.0"
     },
     "autoload": {
@@ -34,8 +34,8 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --no-coverage --configuration ./sdk/php/phpunit.xml",
-        "test-cover": "./vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml"
+        "test": "@php ./vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml --no-coverage",
+        "test-cover": "@php ./vendor/bin/phpunit --configuration ./sdk/php/phpunit.xml  --coverage-html='./sdk/php/coverage/html'"
     },
     "support": {
         "issues": "https://github.com/avto-dev/static-references-data/issues",

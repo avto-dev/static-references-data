@@ -67,7 +67,9 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
      */
     protected function getReferenceContent()
     {
-        return $this->instance->getAutoRegions()->getContent();
+        $instance = $this->instance; // PHP 5.6
+
+        return $instance::getAutoRegions()->getContent();
     }
 
     /**

@@ -2,13 +2,9 @@
 
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
-use Exception;
+use InvalidArgumentException;
+use UnexpectedValueException;
 
-/**
- * Class AbstractStaticReference.
- *
- * Static reference object.
- */
 class StaticReference implements StaticReferenceInterface
 {
     /**
@@ -23,12 +19,12 @@ class StaticReference implements StaticReferenceInterface
      *
      * @param string $file_path
      *
-     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function __construct($file_path)
     {
-        if (! file_exists($file_path) || ! is_readable($file_path)) {
-            throw new Exception(sprintf('File "%s" is not readable', $file_path));
+        if (! \file_exists($file_path) || ! \is_readable($file_path)) {
+            throw new InvalidArgumentException("File [{$file_path}] is not readable");
         }
 
         $this->file_path = $file_path;
@@ -39,7 +35,7 @@ class StaticReference implements StaticReferenceInterface
      */
     public function getHash()
     {
-        return md5_file($this->file_path, false);
+        return \md5_file($this->file_path, false);
     }
 
     /**
@@ -56,10 +52,10 @@ class StaticReference implements StaticReferenceInterface
     public function getContent()
     {
         // By default - read source file as a json
-        $result = json_decode(file_get_contents($this->file_path), true);
+        $result = \json_decode(\file_get_contents($this->file_path), true);
 
-        if (! is_array($result) || json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception(sprintf('Cannot parse json file: "%s"', $this->file_path));
+        if (! \is_array($result) || \json_last_error() !== JSON_ERROR_NONE) {
+            throw new UnexpectedValueException("Cannot parse json file: [{$this->file_path}]");
         }
 
         return $result;

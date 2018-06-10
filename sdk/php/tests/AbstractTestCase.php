@@ -4,9 +4,6 @@ namespace AvtoDev\StaticReferencesData\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class AbstractTestCase.
- */
 abstract class AbstractTestCase extends TestCase
 {
     /**
@@ -16,6 +13,6 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function getRootDirPath()
     {
-        return realpath(__DIR__ . '/../../..');
+        return \realpath(__DIR__ . '/../../..');
     }
 }

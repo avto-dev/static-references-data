@@ -2,9 +2,6 @@
 
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
-/**
- * Interface StaticReferenceDataInterface.
- */
 interface StaticReferenceInterface
 {
     /**
