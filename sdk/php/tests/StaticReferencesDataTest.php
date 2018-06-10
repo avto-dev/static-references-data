@@ -54,7 +54,7 @@ class StaticReferencesDataTest extends AbstractTestCase
     public function testGetAutoCategories()
     {
         $instance = $this->instance; // PHP 5.6
-        
+
         $this->assertEquals(
             json_decode(
                 file_get_contents($instance::getRootDirectoryPath(
