@@ -86,4 +86,20 @@ class StaticReferencesData
             static::getRootDirectoryPath(sprintf('/data/repair_methods/%s', $file_name))
         );
     }
+
+    /**
+     * Returns static reference named 'auto fines'.
+     *
+     * @param string $file_name
+     *
+     * @throws Exception
+     *
+     * @return StaticReference
+     */
+    public static function getAutoFines($file_name = 'auto_fines.json')
+    {
+        return new StaticReference(
+            static::getRootDirectoryPath(sprintf('/data/auto_fines/%s', $file_name))
+        );
+    }
 }
