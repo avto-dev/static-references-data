@@ -4,8 +4,8 @@
 
 ### Added
 
-- "Auto fines" reference ([source][gibdd_fines])
-- Static method `::getAutoFines()`
+- (PHP SDK) "Auto fines" reference ([source][gibdd_fines])
+- (PHP SDK) Static method `::getAutoFines()` to the class `StaticReferencesData`
 
 ## v2.2.0
 
