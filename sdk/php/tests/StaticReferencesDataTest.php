@@ -168,7 +168,6 @@ class StaticReferencesDataTest extends AbstractTestCase
         $instance::getRepairMethods('foo bar');
     }
 
-
     /**
      * @return void
      */
