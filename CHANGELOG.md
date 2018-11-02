@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.4.0
+
+### Added
+
+- One more "Samara" region code added (`763`)
+
 ## v2.3.0
 
 ### Added
