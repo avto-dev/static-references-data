@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Changed
 
 - Maximal PHP version now is undefined
+- Package `tarampampam/wrappers-php` integrated
 - CI changed to [Travis CI][travis]
 - [CodeCov][codecov] integrated
 

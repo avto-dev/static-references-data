@@ -6,6 +6,7 @@ use Exception;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 class StaticReferenceTest extends AbstractTestCase
 {
@@ -39,8 +40,7 @@ class StaticReferenceTest extends AbstractTestCase
      */
     public function testThrowExceptionOnPassedNonValidJson()
     {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessageRegExp('~Cannot parse json file~i');
+        $this->expectException(JsonEncodeDecodeException::class);
 
         $instance = new StaticReference(__DIR__ . '/../Stubs/wrong_json.json');
         $instance->getContent();

@@ -16,7 +16,8 @@
     ],
     "require": {
         "php": "^5.6 || >=7.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "tarampampam/wrappers-php": "^1.2"
     },
     "require-dev": {
         "ext-mbstring": "*",

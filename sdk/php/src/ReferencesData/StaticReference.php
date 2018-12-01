@@ -3,7 +3,8 @@
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
 use InvalidArgumentException;
-use UnexpectedValueException;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
+use Tarampampam\Wrappers\Json;
 
 class StaticReference implements StaticReferenceInterface
 {
@@ -23,7 +24,7 @@ class StaticReference implements StaticReferenceInterface
      */
     public function __construct($file_path)
     {
-        if (! \file_exists($file_path) || ! \is_readable($file_path)) {
+        if (! \is_file($file_path) || ! \is_readable($file_path)) {
             throw new InvalidArgumentException("File [{$file_path}] is not readable");
         }
 
@@ -48,16 +49,11 @@ class StaticReference implements StaticReferenceInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws JsonEncodeDecodeException
      */
     public function getContent()
     {
-        // By default - read source file as a json
-        $result = \json_decode(\file_get_contents($this->file_path), true);
-
-        if (! \is_array($result) || \json_last_error() !== JSON_ERROR_NONE) {
-            throw new UnexpectedValueException("Cannot parse json file: [{$this->file_path}]");
-        }
-
-        return $result;
+        return (array) Json::decode(\file_get_contents($this->file_path), true);
     }
 }
