@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
-## v2.4.0
+## v2.5.0
 
 ### Changed
 
@@ -14,6 +14,14 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 [travis]:https://travis-ci.org/
 [codecov]:https://codecov.io/
+
+## v2.4.0
+
+### Added
+
+- One more "Samara" region code added (`763`) [#2]
+
+[#2]:https://github.com/avto-dev/static-references-data/issues/2
 
 ## v2.3.0
 

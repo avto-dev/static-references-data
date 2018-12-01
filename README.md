@@ -21,7 +21,7 @@
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/static-references-data "^2.4"
+$ composer require avto-dev/static-references-data "^2.5"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
