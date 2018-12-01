@@ -16,7 +16,7 @@ class StaticReferencesData
      */
     public static function getRootDirectoryPath($additional_path = null)
     {
-        $root = \realpath(__DIR__ . '/../../../');
+        $root = \dirname(\dirname(\dirname(__DIR__))) . '/';
 
         return \is_string($additional_path) && ! empty($additional_path)
             ? $root . DIRECTORY_SEPARATOR . ltrim((string) $additional_path, ' \\/')
