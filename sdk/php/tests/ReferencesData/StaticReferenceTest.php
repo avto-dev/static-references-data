@@ -4,9 +4,9 @@ namespace AvtoDev\StaticReferencesData\Tests\ReferencesData;
 
 use Exception;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 class StaticReferenceTest extends AbstractTestCase
 {
