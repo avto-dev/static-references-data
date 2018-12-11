@@ -8,7 +8,9 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region code for mary-ell - `112`
+- GIBDD region code for mary-ell - `112` [#4]
+
+[#4]:https://github.com/avto-dev/static-references-data/issues/4
 
 ## v2.5.0
 
