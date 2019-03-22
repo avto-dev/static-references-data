@@ -102,4 +102,20 @@ class StaticReferencesData
             static::getRootDirectoryPath(sprintf('/data/auto_fines/%s', $file_name))
         );
     }
+
+    /**
+     * Returns static reference named 'vehicle types'.
+     *
+     * @param string $file_name
+     *
+     * @throws Exception
+     *
+     * @return StaticReference
+     */
+    public static function getVehicleTypes($file_name = 'vehicle_types.json')
+    {
+        return new StaticReference(
+            static::getRootDirectoryPath(sprintf('/data/vehicle_types/%s', $file_name))
+        );
+    }
 }

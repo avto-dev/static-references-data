@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.8.0
+
+### Added
+
+- (PHP SDK) "Vehicle types" reference ([source][vehicle_types_source]). Additional info you can find in issue: [#8]
+- (PHP SDK) Static method `::getVehicleTypes()` to the class `StaticReferencesData`
+
+[#8]:https://github.com/avto-dev/static-references-data/issues/8
+
 ## v2.7.0
 
 ### Added
@@ -57,6 +66,6 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 - Code a little bit refactored
 
 [gibdd_fines]:https://xn--90adear.xn--p1ai/mens/fines?page=1
-
+[vehicle_types_source]:http://www.consultant.ru/cons/cgi/online.cgi?req=doc&n=313930&base=EXP&from=313930-1669-diff&rnd=14B238716852CBC1B21D464E9F3969CA#005305945620298047
 [keepachangelog]:https://keepachangelog.com/en/1.0.0/
 [semver]:https://semver.org/spec/v2.0.0.html

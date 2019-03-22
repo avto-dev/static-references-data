@@ -1,0 +1,272 @@
+[
+    {
+        "code": 1,
+        "title": "Бортовые",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 2,
+        "title": "Шасси",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 3,
+        "title": "Фургоны",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 4,
+        "title": "Тягачи седельные",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 5,
+        "title": "Самосвалы",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 6,
+        "title": "Рефрижераторы",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 7,
+        "title": "Цистерны",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 9,
+        "title": "Прочие",
+        "group_title": "Грузовые автомобили",
+        "group_slug": "trucks"
+    },
+    {
+        "code": 21,
+        "title": "Универсал",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 22,
+        "title": "Комби (хетчбек)",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 23,
+        "title": "Седан",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 24,
+        "title": "Лимузин",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 25,
+        "title": "Купе",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 26,
+        "title": "Кабриолет",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 27,
+        "title": "Фаэтон",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 28,
+        "title": "Пикап",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 29,
+        "title": "Прочие",
+        "group_title": "Легковые автомобили",
+        "group_slug": "cars"
+    },
+    {
+        "code": 41,
+        "title": "Длиной не более 5 м",
+        "group_title": "Автобусы",
+        "group_slug": "buses"
+    },
+    {
+        "code": 42,
+        "title": "Длиной более 5 м, но не более 8,0 м",
+        "group_title": "Автобусы",
+        "group_slug": "buses"
+    },
+    {
+        "code": 43,
+        "title": "Длиной более 8 м, но не более 12 м",
+        "group_title": "Автобусы",
+        "group_slug": "buses"
+    },
+    {
+        "code": 44,
+        "title": "Автобусы сочлененные длиной более 12 м",
+        "group_title": "Автобусы",
+        "group_slug": "buses"
+    },
+    {
+        "code": 49,
+        "title": "Автобусы прочие",
+        "group_title": "Автобусы",
+        "group_slug": "buses"
+    },
+    {
+        "code": 51,
+        "title": "Автоцистерны",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 52,
+        "title": "Санитарные",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 53,
+        "title": "Автокраны",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 54,
+        "title": "Заправщики",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 55,
+        "title": "Мастерские",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 56,
+        "title": "Автопогрузчики",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 59,
+        "title": "Прочие",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
+        "code": 71,
+        "title": "Мотоцикл",
+        "group_title": "Мототранспорт",
+        "group_slug": "mototransport"
+    },
+    {
+        "code": 72,
+        "title": "Мотороллер и мотоколяска",
+        "group_title": "Мототранспорт",
+        "group_slug": "mototransport"
+    },
+    {
+        "code": 73,
+        "title": "Мотовелосипеды и мопеды",
+        "group_title": "Мототранспорт",
+        "group_slug": "mototransport"
+    },
+    {
+        "code": 81,
+        "title": "К легковым автомобилям",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 82,
+        "title": "Общего назначения к грузовым автомобилям",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 83,
+        "title": "Прицепы-цистерны",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 84,
+        "title": "Прицепы тракторные",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 85,
+        "title": "Вагоны-дома передвижные",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 86,
+        "title": "Прицепы со специализированными кузовами",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 87,
+        "title": "Трайлеры",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 89,
+        "title": "Прочие",
+        "group_title": "Прицепы",
+        "group_slug": "trailers"
+    },
+    {
+        "code": 91,
+        "title": "С бортовой платформой",
+        "group_title": "Полуприцепы",
+        "group_slug": "semitrailers"
+    },
+    {
+        "code": 92,
+        "title": "Cамосвалы",
+        "group_title": "Полуприцепы",
+        "group_slug": "semitrailers"
+    },
+    {
+        "code": 93,
+        "title": "Фургоны",
+        "group_title": "Полуприцепы",
+        "group_slug": "semitrailers"
+    },
+    {
+        "code": 95,
+        "title": "Цистерны",
+        "group_title": "Полуприцепы",
+        "group_slug": "semitrailers"
+    },
+    {
+        "code": 99,
+        "title": "Прочие",
+        "group_title": "Полуприцепы",
+        "group_slug": "semitrailers"
+    }
+]

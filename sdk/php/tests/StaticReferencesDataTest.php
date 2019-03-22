@@ -197,4 +197,34 @@ class StaticReferencesDataTest extends AbstractTestCase
 
         $instance::getAutoFines('foo bar');
     }
+
+    /**
+     * @return void
+     */
+    public function testGetVehicleTypes()
+    {
+        $instance = $this->instance; // PHP 5.6
+
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($instance::getRootDirectoryPath(
+                    '/data/vehicle_types/vehicle_types.json'
+                )),
+                true
+            ),
+            $instance::getVehicleTypes()->getContent()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetVehicleTypesWithInvalidFileName()
+    {
+        $instance = $this->instance; // PHP 5.6
+
+        $this->expectException(Exception::class);
+
+        $instance::getVehicleTypes('foo bar');
+    }
 }
