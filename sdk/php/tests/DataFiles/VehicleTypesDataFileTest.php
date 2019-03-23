@@ -60,7 +60,7 @@ class VehicleTypesDataFileTest extends AbstractDataFilesTest
      */
     protected function getExpectedEntityCount()
     {
-        return 16;
+        return 45;
     }
 
     /**
