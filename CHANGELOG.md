@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.9.0
+
+### Added
+
+- GIBDD region code for Leningrad region - `147` [#10]
+
+[#10]:https://github.com/avto-dev/static-references-data/issues/10
+
 ## v2.8.0
 
 ### Added
