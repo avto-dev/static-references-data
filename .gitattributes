@@ -1,8 +1,11 @@
 * text=auto
 
-/.github      export-ignore
-/tests        export-ignore
-/*.md         export-ignore
-/LICENSE*     export-ignore
-/.*           export-ignore
-/phpunit.xml  export-ignore
+/.*                     export-ignore
+/*.md                   export-ignore
+/tests                  export-ignore
+/.github                export-ignore
+/LICENSE*               export-ignore
+/sdk/php/.*             export-ignore
+/phpunit.xml            export-ignore
+/sdk/php/tests          export-ignore
+/sdk/php/phpunit.xml    export-ignore
