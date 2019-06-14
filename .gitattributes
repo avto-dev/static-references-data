@@ -6,3 +6,6 @@
 /LICENSE*     export-ignore
 /.*           export-ignore
 /phpunit.xml  export-ignore
+/sdk/php/.*           export-ignore
+/sdk/php/tests        export-ignore
+/sdk/php/phpunit.xml  export-ignore
