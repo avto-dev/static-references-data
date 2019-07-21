@@ -37,6 +37,7 @@ StaticReferencesData::getAutoCategories();
 StaticReferencesData::getAutoRegions();
 StaticReferencesData::getRegistrationActions();
 StaticReferencesData::getAutoFines();
+StaticReferencesData::getCadastralDistricts();
 ```
 
 ### Testing

@@ -227,4 +227,34 @@ class StaticReferencesDataTest extends AbstractTestCase
 
         $instance::getVehicleTypes('foo bar');
     }
+
+    /**
+     * @return void
+     */
+    public function testGetCadastralDistricts()
+    {
+        $instance = $this->instance; // PHP 5.6
+
+        $this->assertEquals(
+            json_decode(
+                file_get_contents($instance::getRootDirectoryPath(
+                    '/data/cadastral_districts/cadastral_districts.json'
+                )),
+                true
+            ),
+            $instance::getCadastralDistricts()->getContent()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetCadastralDistrictsWithInvalidFileName()
+    {
+        $instance = $this->instance; // PHP 5.6
+
+        $this->expectException(Exception::class);
+
+        $instance::getVehicleTypes('foo bar');
+    }
 }
