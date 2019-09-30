@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.11.0
+
+### Added
+
+- GIBDD region code for `The Republic of Bashkortostan` - `702` [#15]
+
+[#15]:https://github.com/avto-dev/static-references-data/issues/15
+
 ## v2.10.0
 
 ### Added
