@@ -2,8 +2,8 @@
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use Exception;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
+use Exception;
 
 class StaticReferencesDataTest extends AbstractTestCase
 {

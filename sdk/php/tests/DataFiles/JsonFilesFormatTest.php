@@ -2,11 +2,11 @@
 
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-use RegexIterator;
-use RecursiveRegexIterator;
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use RecursiveRegexIterator;
+use RegexIterator;
 
 class JsonFilesFormatTest extends AbstractTestCase
 {

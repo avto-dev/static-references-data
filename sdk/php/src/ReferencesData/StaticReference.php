@@ -3,8 +3,8 @@
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
 use InvalidArgumentException;
-use Tarampampam\Wrappers\Json;
 use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
+use Tarampampam\Wrappers\Json;
 
 class StaticReference implements StaticReferenceInterface
 {
