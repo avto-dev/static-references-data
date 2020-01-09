@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Added new region codes [#17]
+- Added new region codes: `Moscow region` - `790`, `Chelyabinsk region` - `774`, `Moscow` - `797`, `Krasnodar region` - `193`, `Altai region` - `122` [#17]
 
 [#17]:https://github.com/avto-dev/static-references-data/issues/17
 
