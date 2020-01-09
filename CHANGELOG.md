@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## UNRELEASED
+
+### Added
+
+- Added new region codes: `Moscow region` - `790`, `Chelyabinsk region` - `774`, `Moscow` - `797`, `Krasnodar region` - `193`, `Altai region` - `122` [#17]
+
+[#17]:https://github.com/avto-dev/static-references-data/issues/17
+
 ## v2.11.0
 
 ### Added
