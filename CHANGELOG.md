@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Added new region codes: `Moscow region` - `790`, `Chelyabinsk region` - `774`, `Moscow` - `797`, `Krasnodar region` - `193`, `Altai region` - `122` [#17]
+- GIBDD region code for `Moscow region` - `790` [#17]
+- GIBDD region code for `Chelyabinsk region` - `774` [#17]
+- GIBDD region code for `Moscow` - `797` [#17]
+- GIBDD region code for `Krasnodar region` - `193` [#17]
+- GIBDD region code for `Altai region` - `122` [#17]
 
 [#17]:https://github.com/avto-dev/static-references-data/issues/17
 
