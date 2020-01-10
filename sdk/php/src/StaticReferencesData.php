@@ -2,8 +2,8 @@
 
 namespace AvtoDev\StaticReferencesData;
 
-use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use Exception;
+use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 
 class StaticReferencesData
 {
