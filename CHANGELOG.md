@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.12.0
+
+### Added
+
+- GIBDD region code for `Moscow region` - `790` [#17]
+- GIBDD region code for `Chelyabinsk region` - `774` [#17]
+- GIBDD region code for `Moscow` - `797` [#17]
+- GIBDD region code for `Krasnodar region` - `193` [#17]
+- GIBDD region code for `Altai region` - `122` [#17]
+
+[#17]:https://github.com/avto-dev/static-references-data/issues/17
+
 ## v2.11.0
 
 ### Added
