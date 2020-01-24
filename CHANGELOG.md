@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.13.0
+
+### Added
+
+- GIBDD region code for `Orenburg region` - `156` [#21]
+
+[#21]:https://github.com/avto-dev/static-references-data/issues/21
+
 ## v2.12.0
 
 ### Added
