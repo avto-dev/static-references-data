@@ -9,18 +9,20 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Changed
 
 - (PHP SDK) Minimal PHP version now is `^7.1.3`
-- (PHP SDK) `StaticReference::getContent()` signature - now this method accepts two additional parameters - `bool $as_array = true, int $options = 0`
+- (PHP SDK) Unit tests totally rewritten
+- (PHP SDK) Strict types enabled
 
 ### Added
 
 - Docker-based environment for development
 - Tests running using GitLab actions
 - (PHP SDK) `phpstan/phpstan` package for static code analyzer
-- (PHP SDK) Strict types and type-hinting
+- (PHP SDK) Return value types for methods in `StaticReference` and `StaticReferencesData` classes (where it possible)
+- (PHP SDK) `StaticReference::getData(bool $as_array = true, int $options = 0)` method
 
 ### Deprecated
 
-- (PHP SDK) `StaticReference::getContent()`  will be replaced with `::getData(bool $as_array = true, int $options = 0)` since `v3`
+- (PHP SDK) `StaticReference::getContent()` and `StaticReferenceInterface::getContent()` will be replaced with `::getData()` since `v3`
 
 ## v2.13.0
 

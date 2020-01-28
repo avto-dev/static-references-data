@@ -63,6 +63,8 @@ class StaticReference implements StaticReferenceInterface
     /**
      * {@inheritdoc}
      *
+     * @deprecated since v3 this method will be replaced with `::getData(bool $as_array = true, int $options = 0)`
+     *
      * @throws JsonEncodeDecodeException
      */
     public function getContent(): array
