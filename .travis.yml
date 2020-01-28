@@ -1,4 +1,5 @@
 language: php
+os: linux
 
 cache:
   directories:
@@ -9,11 +10,8 @@ env:
   - setup=basic
   - coverage=false
 
-sudo: false
-
 branches:
   except:
-  - gh-pages
   - /analysis-.*/
 
 before_install:
@@ -21,7 +19,6 @@ before_install:
 
 install:
 - if [[ $setup = 'basic'  ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest; fi
-- if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable; fi
 - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable --prefer-lowest; fi
 
 script:
@@ -30,15 +27,8 @@ script:
 after_success:
 - if [[ $coverage = 'true' ]]; then bash <(curl -s https://codecov.io/bash); fi
 
-matrix:
+jobs:
   include:
-  - php: 5.6
-    env: coverage=true
-  - php: 5.6
-    env: setup=lowest
-  - php: 5.6
-    env: setup=stable
-
   - php: 7.0
   - php: 7.0
     env: setup=lowest
@@ -48,17 +38,13 @@ matrix:
     env: setup=lowest
 
   - php: 7.2
-    env: coverage=true
   - php: 7.2
     env: setup=lowest
-  - php: 7.2
-    env: setup=stable
 
   - php: 7.3
   - php: 7.3
+    env: setup=lowest coverage=true
+
+  - php: 7.4
+  - php: 7.4
     env: setup=lowest
-
-  - php: nightly
-
-  allow_failures:
-  - php: nightly

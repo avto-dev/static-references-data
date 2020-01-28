@@ -1,47 +1,44 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class AutoRegionsDataFileTest.
- *
- * Auto regions file test.
- */
 class AutoRegionsDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('title', $item);
-            $this->assertInternalType('string', $item['title']);
+            $this->assertIsString($item['title']);
 
             $this->assertArrayHasKey('short', $item);
-            $this->assertInternalType('array', $item['short']);
+            $this->assertIsArray($item['short']);
 
             foreach ($item['short'] as $short_name) {
-                $this->assertInternalType('string', $short_name);
+                $this->assertIsString($short_name);
             }
 
             $this->assertArrayHasKey('code_iso_31662', $item);
-            $this->assertInternalType('string', $item['code_iso_31662']);
+            $this->assertIsString($item['code_iso_31662']);
 
             $this->assertArrayHasKey('type', $item);
-            $this->assertInternalType('string', $item['type']);
+            $this->assertIsString($item['type']);
 
             $this->assertArrayHasKey('code', $item);
-            $this->assertInternalType('int', $item['code']);
+            $this->assertIsInt($item['code']);
 
             $this->assertArrayHasKey('okato', $item);
-            $this->assertInternalType('string', $item['okato']);
+            $this->assertIsString($item['okato']);
 
             $this->assertArrayHasKey('gibdd', $item);
-            $this->assertInternalType('array', $item['gibdd']);
+            $this->assertIsArray($item['gibdd']);
 
             foreach ($item['gibdd'] as $gibdd_code) {
-                $this->assertInternalType('int', $gibdd_code);
+                $this->assertIsInt($gibdd_code);
             }
         }
     }
@@ -49,7 +46,15 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getAutoRegions()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/auto_regions';
     }
@@ -57,7 +62,7 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/auto_regions/auto_regions.json';
     }
@@ -65,17 +70,7 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getAutoRegions()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 86;
     }
@@ -83,7 +78,7 @@ class AutoRegionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [

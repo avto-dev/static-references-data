@@ -2,6 +2,8 @@
 
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
+use Exception;
+
 interface StaticReferenceInterface
 {
     /**
@@ -21,9 +23,9 @@ interface StaticReferenceInterface
     /**
      * Returns source content as an array.
      *
-     * @throws \Exception
+     * @throws Exception
      *
-     * @return array|mixed[]
+     * @return mixed[]|object
      */
     public function getContent();
 }

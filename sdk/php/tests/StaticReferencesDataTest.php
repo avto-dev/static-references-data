@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use Exception;
+use InvalidArgumentException;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
 class StaticReferencesDataTest extends AbstractTestCase
@@ -15,7 +17,7 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -23,238 +25,194 @@ class StaticReferencesDataTest extends AbstractTestCase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    protected function tearDown()
-    {
-        unset($this->instance);
-
-        parent::tearDown();
-    }
-
-    /**
-     * Тест метода, возвращающего базовый путь к директории спецификаций.
-     *
      * @return void
      */
-    public function testGetRootDirectoryPath()
+    public function testGetRootDirectoryPath(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
-        $this->assertEquals($instance::getRootDirectoryPath(), $root = $this->getRootDirPath());
-        $this->assertEquals($instance::getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($instance::getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
-        $this->assertEquals($instance::getRootDirectoryPath(new \stdClass), $root);
-        $this->assertEquals($instance::getRootDirectoryPath([]), $root);
+        $this->assertEquals($this->instance::getRootDirectoryPath(), $root = $this->getRootDirPath());
+        $this->assertEquals($this->instance::getRootDirectoryPath('foo'), $root . DIRECTORY_SEPARATOR . 'foo');
+        $this->assertEquals($this->instance::getRootDirectoryPath(' /foo'), $root . DIRECTORY_SEPARATOR . 'foo');
     }
 
     /**
      * @return void
      */
-    public function testGetAutoCategories()
+    public function testGetAutoCategories(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/auto_categories/auto_categories.json'
                 )),
                 true
             ),
-            $instance::getAutoCategories()->getContent()
+            $this->instance::getAutoCategories()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoCategoriesWithInvalidFileName()
+    public function testGetAutoCategoriesWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getAutoCategories('foo bar');
+        $this->instance::getAutoCategories('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetAutoRegions()
+    public function testGetAutoRegions(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/auto_regions/auto_regions.json'
                 )),
                 true
             ),
-            $instance::getAutoRegions()->getContent()
+            $this->instance::getAutoRegions()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoRegionsWithInvalidFileName()
+    public function testGetAutoRegionsWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getAutoRegions('foo bar');
+        $this->instance::getAutoRegions('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetRegistrationActions()
+    public function testGetRegistrationActions(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/registration_actions/registration_actions.json'
                 )),
                 true
             ),
-            $instance::getRegistrationActions()->getContent()
+            $this->instance::getRegistrationActions()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRegistrationActionsWithInvalidFileName()
+    public function testGetRegistrationActionsWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getRegistrationActions('foo bar');
+        $this->instance::getRegistrationActions('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetRepairMethods()
+    public function testGetRepairMethods(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/repair_methods/repair_methods.json'
                 )),
                 true
             ),
-            $instance::getRepairMethods()->getContent()
+            $this->instance::getRepairMethods()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRepairMethodsWithInvalidFileName()
+    public function testGetRepairMethodsWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getRepairMethods('foo bar');
+        $this->instance::getRepairMethods('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetAutoFines()
+    public function testGetAutoFines(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/auto_fines/auto_fines.json'
                 )),
                 true
             ),
-            $instance::getAutoFines()->getContent()
+            $this->instance::getAutoFines()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoFinesWithInvalidFileName()
+    public function testGetAutoFinesWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getAutoFines('foo bar');
+        $this->instance::getAutoFines('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetVehicleTypes()
+    public function testGetVehicleTypes(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/vehicle_types/vehicle_types.json'
                 )),
                 true
             ),
-            $instance::getVehicleTypes()->getContent()
+            $this->instance::getVehicleTypes()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetVehicleTypesWithInvalidFileName()
+    public function testGetVehicleTypesWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getVehicleTypes('foo bar');
+        $this->instance::getVehicleTypes('foo bar');
     }
 
     /**
      * @return void
      */
-    public function testGetCadastralDistricts()
+    public function testGetCadastralDistricts(): void
     {
-        $instance = $this->instance; // PHP 5.6
-
         $this->assertEquals(
-            json_decode(
-                file_get_contents($instance::getRootDirectoryPath(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/cadastral_districts/cadastral_districts.json'
                 )),
                 true
             ),
-            $instance::getCadastralDistricts()->getContent()
+            $this->instance::getCadastralDistricts()->getContent()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetCadastralDistrictsWithInvalidFileName()
+    public function testGetCadastralDistrictsWithInvalidFileName(): void
     {
-        $instance = $this->instance; // PHP 5.6
+        $this->expectException(InvalidArgumentException::class);
 
-        $this->expectException(Exception::class);
-
-        $instance::getVehicleTypes('foo bar');
+        $this->instance::getVehicleTypes('foo bar');
     }
 }

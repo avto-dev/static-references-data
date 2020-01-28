@@ -1,28 +1,25 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class RegistrationActionsDataFileTest.
- *
- * Registration actions file test.
- */
 class RegistrationActionsDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('description', $item);
-            $this->assertInternalType('string', $item['description']);
+            $this->assertIsString($item['description']);
 
             $this->assertArrayHasKey('codes', $item);
-            $this->assertInternalType('array', $item['codes']);
+            $this->assertIsArray($item['codes']);
 
             foreach ($item['codes'] as $reg_action_code) {
-                $this->assertInternalType('int', $reg_action_code);
+                $this->assertIsInt($reg_action_code);
             }
         }
     }
@@ -30,7 +27,15 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getRegistrationActions()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/registration_actions';
     }
@@ -38,7 +43,7 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/registration_actions/registration_actions.json';
     }
@@ -46,17 +51,7 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getRegistrationActions()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 74;
     }
@@ -64,7 +59,7 @@ class RegistrationActionsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [

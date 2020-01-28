@@ -1,35 +1,40 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class CadastralDistrictsDataFileTest.
- *
- * Cadastral districts file test.
- */
 class CadastralDistrictsDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('code', $item);
-            $this->assertInternalType('string', $item['code']);
+            $this->assertIsString($item['code']);
 
             $this->assertArrayHasKey('name', $item);
-            $this->assertInternalType('string', $item['name']);
+            $this->assertIsString($item['name']);
 
             $this->assertArrayHasKey('districts', $item);
-            $this->assertInternalType('array', $item['districts']);
+            $this->assertIsArray($item['districts']);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array)
+    {
+        return $this->instance::getCadastralDistricts()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/cadastral_districts';
     }
@@ -37,7 +42,7 @@ class CadastralDistrictsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/cadastral_districts/cadastral_districts.json';
     }
@@ -45,17 +50,7 @@ class CadastralDistrictsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getCadastralDistricts()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 91;
     }
@@ -63,7 +58,7 @@ class CadastralDistrictsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [

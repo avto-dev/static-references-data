@@ -1,30 +1,37 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Auto fines file test.
- */
 class AutoFinesDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('description', $item);
-            $this->assertInternalType('string', $item['description']);
+            $this->assertIsString($item['description']);
 
             $this->assertArrayHasKey('article', $item);
-            $this->assertInternalType('string', $item['article']);
+            $this->assertIsString($item['article']);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getAutoFines()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/auto_fines';
     }
@@ -32,7 +39,7 @@ class AutoFinesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/auto_fines/auto_fines.json';
     }
@@ -40,17 +47,7 @@ class AutoFinesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getAutoFines()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 179;
     }
@@ -58,7 +55,7 @@ class AutoFinesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [

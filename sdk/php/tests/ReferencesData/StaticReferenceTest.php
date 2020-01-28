@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\ReferencesData;
 
-use Exception;
+use InvalidArgumentException;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
@@ -11,34 +13,28 @@ use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
 class StaticReferenceTest extends AbstractTestCase
 {
     /**
-     * Test class implementations.
-     *
      * @return void
      */
-    public function testInstancesOf()
+    public function testInstancesOf(): void
     {
         $this->assertInstanceOf(StaticReferenceInterface::class, new StaticReference(__FILE__));
     }
 
     /**
-     * Test throwing exception on passing non-exists file into constructor.
-     *
      * @return void
      */
-    public function testThrowExceptionOnPassedNonExistsFile()
+    public function testThrowExceptionOnPassedNonExistsFile(): void
     {
-        $this->expectException(Exception::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageRegExp('~is not readable~i');
 
-        new StaticReference(null);
+        new StaticReference('');
     }
 
     /**
-     * Test throwing exception on passing invalid json-file file into constructor.
-     *
      * @return void
      */
-    public function testThrowExceptionOnPassedNonValidJson()
+    public function testThrowExceptionOnPassedNonValidJson(): void
     {
         $this->expectException(JsonEncodeDecodeException::class);
 
@@ -47,11 +43,9 @@ class StaticReferenceTest extends AbstractTestCase
     }
 
     /**
-     * Test getters methods.
-     *
      * @return void
      */
-    public function testGetters()
+    public function testGetters(): void
     {
         $instance = new StaticReference(
             $path = $this->getRootDirPath() . '/data/auto_categories/auto_categories.json'
@@ -60,12 +54,12 @@ class StaticReferenceTest extends AbstractTestCase
         $this->assertNotEmpty($hash = $instance->getHash());
         $this->assertTrue(mb_strlen($hash) >= 8);
         $this->assertRegExp('~[a-f0-9]~', $hash);
-        $this->assertEquals($hash, $instance->getHash());
+        $this->assertSame($hash, $instance->getHash());
 
-        $this->assertEquals($path, $instance->getFilePath());
+        $this->assertSame($path, $instance->getFilePath());
 
-        $this->assertInternalType('array', $content = $instance->getContent());
+        $this->assertIsArray($content = $instance->getContent());
         $this->assertNotEmpty($content);
-        $this->assertEquals($content, $instance->getContent());
+        $this->assertSame($content, $instance->getContent());
     }
 }

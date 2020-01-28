@@ -1,28 +1,25 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class RepairMethodsDataFileTest.
- *
- * Repair methods file test.
- */
 class RepairMethodsDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('description', $item);
-            $this->assertTrue(is_string($item['description']));
+            $this->assertIsString($item['description']);
 
             $this->assertArrayHasKey('codes', $item);
-            $this->assertInternalType('array', $item['codes']);
+            $this->assertIsArray($item['codes']);
 
             foreach ($item['codes'] as $repair_method_code) {
-                $this->assertInternalType('string', $repair_method_code);
+                $this->assertIsString($repair_method_code);
             }
         }
     }
@@ -30,7 +27,15 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getRepairMethods()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/repair_methods';
     }
@@ -38,7 +43,7 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/repair_methods/repair_methods.json';
     }
@@ -46,17 +51,7 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getRepairMethods()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 19;
     }
@@ -64,7 +59,7 @@ class RepairMethodsDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [

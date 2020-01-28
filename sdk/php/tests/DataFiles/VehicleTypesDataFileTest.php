@@ -1,38 +1,43 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class VehicleTypesDataFileTest.
- *
- * Vehicle types file test.
- */
 class VehicleTypesDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('code', $item);
-            $this->assertInternalType('int', $item['code']);
+            $this->assertIsInt($item['code']);
 
             $this->assertArrayHasKey('title', $item);
-            $this->assertInternalType('string', $item['title']);
+            $this->assertIsString($item['title']);
 
             $this->assertArrayHasKey('group_title', $item);
-            $this->assertInternalType('string', $item['group_title']);
+            $this->assertIsString($item['group_title']);
 
             $this->assertArrayHasKey('group_slug', $item);
-            $this->assertInternalType('string', $item['group_slug']);
+            $this->assertIsString($item['group_slug']);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getVehicleTypes()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/vehicle_types';
     }
@@ -40,7 +45,7 @@ class VehicleTypesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/vehicle_types/vehicle_types.json';
     }
@@ -48,17 +53,7 @@ class VehicleTypesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getVehicleTypes()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 45;
     }
@@ -66,26 +61,26 @@ class VehicleTypesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [
-                'code'       => 22,
-                'title'      => 'Комби (хетчбек)',
-                'group_title'=> 'Легковые автомобили',
-                'group_slug' => 'cars',
+                'code'        => 22,
+                'title'       => 'Комби (хетчбек)',
+                'group_title' => 'Легковые автомобили',
+                'group_slug'  => 'cars',
             ],
             [
-                'code'       => 3,
-                'title'      => 'Фургоны',
-                'group_title'=> 'Грузовые автомобили',
-                'group_slug' => 'trucks',
+                'code'        => 3,
+                'title'       => 'Фургоны',
+                'group_title' => 'Грузовые автомобили',
+                'group_slug'  => 'trucks',
             ],
             [
-                'code'       => 72,
-                'title'      => 'Мотороллер и мотоколяска',
-                'group_title'=> 'Мототранспорт',
-                'group_slug' => 'mototransport',
+                'code'        => 72,
+                'title'       => 'Мотороллер и мотоколяска',
+                'group_title' => 'Мототранспорт',
+                'group_slug'  => 'mototransport',
             ],
         ];
     }

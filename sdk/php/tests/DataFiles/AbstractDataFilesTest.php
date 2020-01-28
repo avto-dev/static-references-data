@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
 use AvtoDev\StaticReferencesData\StaticReferencesData;
@@ -15,7 +17,7 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -23,25 +25,13 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    protected function tearDown()
-    {
-        unset($this->instance);
-
-        parent::tearDown();
-    }
-
-    /**
-     * Тест структуры директорий.
-     *
      * @return void
      */
-    public function testDirectoriesStructure()
+    public function testDirectoriesStructure(): void
     {
         $root = $this->getRootDirPath();
 
-        $directories = array_map('realpath', [
+        $directories = \array_map('\\realpath', [
             $root . '/data',
             $this->getDirectoryPath(),
         ]);
@@ -53,79 +43,83 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
-     * Тест наличия файлов.
-     *
+     * @return string
+     */
+    abstract protected function getDirectoryPath(): string;
+
+    /**
      * @return void
      */
-    public function testFileExists()
+    public function testFileExists(): void
     {
-        $file = realpath($this->getFilePath());
+        $file = \realpath($this->getFilePath());
 
         $this->assertFileExists($file);
         $this->assertFileIsReadable($file);
     }
 
     /**
-     * Тестируем колличество записей в справочнике.
-     *
      * @return void
      */
-    public function testEntityCount()
+    public function testGetContentAsObject(): void
     {
-        $this->assertGreaterThanOrEqual($this->getExpectedEntityCount(), count($this->getReferenceContent()));
-    }
-
-    /**
-     * Проверяет что в справочнике есть значение.
-     *
-     * @return void
-     */
-    public function testEntityPresents()
-    {
-        foreach ($this->getEntities() as $entity) {
-            $this->assertContains($entity, $this->getReferenceContent());
+        foreach ($this->getReferenceContent(false) as $item) {
+            $this->assertIsObject($item);
         }
     }
 
     /**
-     * Проверяет структуру файлов.
-     *
      * @return void
      */
-    abstract public function testFileStricture();
+    public function testGetContentAsArray(): void
+    {
+        foreach ($this->getReferenceContent(true) as $item) {
+            $this->assertIsArray($item);
+        }
+    }
 
     /**
-     * Получить путь до дериктории в которой лежит файл.
-     *
      * @return string
      */
-    abstract protected function getDirectoryPath();
+    abstract protected function getFilePath(): string;
 
     /**
-     * Получить путь до файла справочника.
-     *
-     * @return string
+     * @return void
      */
-    abstract protected function getFilePath();
+    public function testEntityCount(): void
+    {
+        $this->assertGreaterThanOrEqual($this->getExpectedEntityCount(), \count($this->getReferenceContent(true)));
+    }
 
     /**
-     * Возвращает ожидаемое колличество записей в справочнике.
-     *
      * @return int
      */
-    abstract protected function getExpectedEntityCount();
+    abstract protected function getExpectedEntityCount(): int;
 
     /**
-     * Возвращает текущее колличество записей в справочнике.
+     * @param bool $as_array
      *
-     * @return array
+     * @return array|object
      */
-    abstract protected function getReferenceContent();
+    abstract protected function getReferenceContent(bool $as_array);
 
     /**
-     * Возвращает массив значений который должен присутствовать в справочнике.
-     *
+     * @return void
+     */
+    public function testEntityPresents(): void
+    {
+        foreach ($this->getEntities() as $entity) {
+            $this->assertContains($entity, $this->getReferenceContent(true));
+        }
+    }
+
+    /**
      * @return array
      */
-    abstract protected function getEntities();
+    abstract protected function getEntities(): array;
+
+    /**
+     * @return void
+     */
+    abstract public function testFileStricture(): void;
 }

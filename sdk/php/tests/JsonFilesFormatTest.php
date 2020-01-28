@@ -1,21 +1,20 @@
 <?php
 
-namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
+declare(strict_types = 1);
+
+namespace AvtoDev\StaticReferencesData\Tests;
 
 use RegexIterator;
 use RecursiveRegexIterator;
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
-use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
 
 class JsonFilesFormatTest extends AbstractTestCase
 {
     /**
-     * Тест корректности json-файлов.
-     *
      * @return void
      */
-    public function testJsonFilesFormat()
+    public function testJsonFilesFormat(): void
     {
         $root = $this->getRootDirPath();
 
@@ -34,12 +33,12 @@ class JsonFilesFormatTest extends AbstractTestCase
             foreach ($result as $file_path) {
                 // Skip excluded directory
                 foreach ($exclude_directories as $exclude_directory_path) {
-                    if (mb_strpos($file_path, $exclude_directory_path) === 0) {
+                    if (\mb_strpos($file_path, $exclude_directory_path) === 0) {
                         continue 2;
                     }
                 }
 
-                $this->assertJson(file_get_contents($file_path));
+                $this->assertJson(\file_get_contents($file_path));
                 $counter++;
             }
         }

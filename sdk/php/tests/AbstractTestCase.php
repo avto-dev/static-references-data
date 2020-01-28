@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -7,12 +9,10 @@ use PHPUnit\Framework\TestCase;
 abstract class AbstractTestCase extends TestCase
 {
     /**
-     * Возвращает путь к базовой директории репозитория.
-     *
-     * @return bool|string
+     * @return string
      */
-    protected function getRootDirPath()
+    protected function getRootDirPath(): string
     {
-        return \realpath(__DIR__ . '/../../..');
+        return (string) \realpath(__DIR__ . '/../../..');
     }
 }

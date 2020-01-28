@@ -1,32 +1,37 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\Tests\DataFiles;
 
-/**
- * Class AutoCategoriesDataFileTest.
- *
- * Auto categories file test.
- */
 class AutoCategoriesDataFileTest extends AbstractDataFilesTest
 {
     /**
      * {@inheritdoc}
      */
-    public function testFileStricture()
+    public function testFileStricture(): void
     {
-        foreach ($this->getReferenceContent() as $item) {
+        foreach ($this->getReferenceContent(true) as $item) {
             $this->assertArrayHasKey('code', $item);
-            $this->assertInternalType('string', $item['code']);
+            $this->assertIsString($item['code']);
 
             $this->assertArrayHasKey('description', $item);
-            $this->assertInternalType('string', $item['description']);
+            $this->assertIsString($item['description']);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getDirectoryPath()
+    protected function getReferenceContent(bool $as_array): array
+    {
+        return $this->instance::getAutoCategories()->getContent($as_array);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDirectoryPath(): string
     {
         return $this->getRootDirPath() . '/data/auto_categories';
     }
@@ -34,7 +39,7 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getFilePath()
+    protected function getFilePath(): string
     {
         return $this->getRootDirPath() . '/data/auto_categories/auto_categories.json';
     }
@@ -42,17 +47,7 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getReferenceContent()
-    {
-        $instance = $this->instance; // PHP 5.6
-
-        return $instance::getAutoCategories()->getContent();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getExpectedEntityCount()
+    protected function getExpectedEntityCount(): int
     {
         return 16;
     }
@@ -60,7 +55,7 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
     /**
      * {@inheritdoc}
      */
-    protected function getEntities()
+    protected function getEntities(): array
     {
         return [
             [
@@ -74,7 +69,6 @@ class AutoCategoriesDataFileTest extends AbstractDataFilesTest
             [
                 'code'        => 'TB',
                 'description' => 'Троллейбусы',
-
             ],
         ];
     }
