@@ -25,7 +25,7 @@ interface StaticReferenceInterface
      *
      * @throws Exception
      *
-     * @return mixed[]|object
+     * @return mixed[]|object[]|object
      */
     public function getContent();
 }
