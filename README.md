@@ -43,7 +43,9 @@ StaticReferencesData::getCadastralDistricts();
 
 ### Using CDN
 
-You can use HTTP for fetching references data using <https://jsdelivr.com>. For example, open in your browser next link: <https://cdn.jsdelivr.net/gh/avto-dev/static-references-data@2/data/> and find required file. More documentation [can be found here](https://jsdelivr.com/features#gh).
+[![](https://data.jsdelivr.com/v1/package/gh/avto-dev/static-references-data/badge)](https://www.jsdelivr.com/package/gh/avto-dev/static-references-data)
+
+You can use HTTP for fetching references data using <https://jsdelivr.com>. For example, open in your browser **[this link](https://www.jsdelivr.com/package/gh/avto-dev/static-references-data?path=data)** and find required file. More documentation [can be found here](https://jsdelivr.com/features#gh).
 
 ### Testing
 
