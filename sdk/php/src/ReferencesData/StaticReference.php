@@ -73,9 +73,14 @@ class StaticReference implements StaticReferenceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns source content as abjects or associative arrays.
+     *
+     * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
+     * @param int  $options  Bitmask of JSON decode options
      *
      * @throws JsonEncodeDecodeException
+     *
+     * @return mixed[]|object[]|object
      */
     public function getData(bool $as_array = true, int $options = 0)
     {
