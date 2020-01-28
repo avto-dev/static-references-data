@@ -61,7 +61,8 @@ class StaticReference implements StaticReferenceInterface
     /**
      * {@inheritdoc}
      *
-     * @param bool $as_array
+     * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
+     * @param int  $options  Bitmask of JSON decode options
      *
      * @throws JsonEncodeDecodeException
      */

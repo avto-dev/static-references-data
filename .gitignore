@@ -11,6 +11,5 @@ composer.lock
 # Temp dirs & trash
 /temp
 /tmp
-/coverage
 .DS_Store
 *.cache
