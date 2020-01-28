@@ -1,5 +1,4 @@
-# Composer
-composer.phar
+# Composer lock file
 composer.lock
 
 # IDEs
@@ -12,5 +11,5 @@ composer.lock
 # Temp dirs & trash
 /temp
 /tmp
-/build
 .DS_Store
+*.cache

@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\StaticReferencesData\ReferencesData;
 
+use RuntimeException;
 use InvalidArgumentException;
 use Tarampampam\Wrappers\Json;
 use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
@@ -16,15 +19,15 @@ class StaticReference implements StaticReferenceInterface
     protected $file_path;
 
     /**
-     * AbstractStaticReferenceData constructor.
+     * Create a new reference instance.
      *
      * @param string $file_path
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($file_path)
+    public function __construct(string $file_path)
     {
-        if (! \is_file($file_path) || ! \is_readable($file_path)) {
+        if (! \is_readable($file_path)) {
             throw new InvalidArgumentException("File [{$file_path}] is not readable");
         }
 
@@ -33,16 +36,26 @@ class StaticReference implements StaticReferenceInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws RuntimeException
      */
-    public function getHash()
+    public function getHash(): string
     {
-        return \md5_file($this->file_path, false);
+        $hash = \md5_file($this->file_path, false);
+
+        // @codeCoverageIgnoreStart
+        if (! \is_string($hash)) {
+            throw new RuntimeException("Cannot calculate hash for file [{$this->file_path}]");
+        }
+        // @codeCoverageIgnoreEnd
+
+        return $hash;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getFilePath()
+    public function getFilePath(): string
     {
         return $this->file_path;
     }
@@ -50,10 +63,25 @@ class StaticReference implements StaticReferenceInterface
     /**
      * {@inheritdoc}
      *
+     * @deprecated since v3 this method will be replaced with `::getData(bool $as_array = true, int $options = 0)`
+     *
      * @throws JsonEncodeDecodeException
      */
-    public function getContent()
+    public function getContent(): array
     {
-        return (array) Json::decode(\file_get_contents($this->file_path), true);
+        return (array) $this->getData(true);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @throws JsonEncodeDecodeException
+     */
+    public function getData(bool $as_array = true, int $options = 0)
+    {
+        /** @var mixed[]|object[]|object $data */
+        $data = Json::decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
+
+        return $data;
     }
 }

@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.14.0
+
+### Changed
+
+- (PHP SDK) Minimal PHP version now is `^7.1.3`
+- (PHP SDK) Unit tests totally rewritten
+- (PHP SDK) Strict types enabled
+
+### Added
+
+- Docker-based environment for development
+- Tests running using GitLab actions
+- (PHP SDK) `phpstan/phpstan` package for static code analyzer
+- (PHP SDK) Return value types for methods in `StaticReference` and `StaticReferencesData` classes (where it possible)
+- (PHP SDK) `StaticReference::getData(bool $as_array = true, int $options = 0)` method
+
+### Deprecated
+
+- (PHP SDK) `StaticReference::getContent()` and `StaticReferenceInterface::getContent()` will be replaced with `::getData()` since `v3`
+
 ## v2.13.0
 
 ### Added
