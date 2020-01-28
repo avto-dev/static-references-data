@@ -43,9 +43,11 @@ class StaticReference implements StaticReferenceInterface
     {
         $hash = \md5_file($this->file_path, false);
 
+        // @codeCoverageIgnoreStart
         if (! \is_string($hash)) {
             throw new RuntimeException("Cannot calculate hash for file [{$this->file_path}]");
         }
+        // @codeCoverageIgnoreEnd
 
         return $hash;
     }
@@ -61,12 +63,19 @@ class StaticReference implements StaticReferenceInterface
     /**
      * {@inheritdoc}
      *
-     * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
-     * @param int  $options  Bitmask of JSON decode options
+     * @throws JsonEncodeDecodeException
+     */
+    public function getContent(): array
+    {
+        return (array) $this->getData(true);
+    }
+
+    /**
+     * {@inheritdoc}
      *
      * @throws JsonEncodeDecodeException
      */
-    public function getContent(bool $as_array = true, int $options = 0)
+    public function getData(bool $as_array = true, int $options = 0)
     {
         /** @var mixed[]|object[]|object $data */
         $data = Json::decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);

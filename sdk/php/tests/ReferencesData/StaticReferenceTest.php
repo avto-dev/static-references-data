@@ -6,18 +6,35 @@ namespace AvtoDev\StaticReferencesData\Tests\ReferencesData;
 
 use InvalidArgumentException;
 use AvtoDev\StaticReferencesData\Tests\AbstractTestCase;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
 
+/**
+ * @covers \AvtoDev\StaticReferencesData\ReferencesData\StaticReference<extended>
+ */
 class StaticReferenceTest extends AbstractTestCase
 {
+    /**
+     * @var StaticReference
+     */
+    protected $reference;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->reference = new StaticReference(__DIR__ . '/sample.json');
+    }
+
     /**
      * @return void
      */
     public function testInstancesOf(): void
     {
-        $this->assertInstanceOf(StaticReferenceInterface::class, new StaticReference(__FILE__));
+        $this->assertInstanceOf(StaticReferenceInterface::class, $this->reference);
     }
 
     /**
@@ -34,32 +51,58 @@ class StaticReferenceTest extends AbstractTestCase
     /**
      * @return void
      */
-    public function testThrowExceptionOnPassedNonValidJson(): void
+    public function testGetHash(): void
     {
-        $this->expectException(JsonEncodeDecodeException::class);
-
-        $instance = new StaticReference(__DIR__ . '/../Stubs/wrong_json.json');
-        $instance->getContent();
+        $this->assertSame(\md5_file($this->reference->getFilePath(), false), $this->reference->getHash());
     }
 
     /**
      * @return void
      */
-    public function testGetters(): void
+    public function testGetFilePath(): void
     {
-        $instance = new StaticReference(
-            $path = $this->getRootDirPath() . '/data/auto_categories/auto_categories.json'
-        );
+        $this->assertSame(__DIR__ . '/sample.json', $this->reference->getFilePath());
+    }
 
-        $this->assertNotEmpty($hash = $instance->getHash());
-        $this->assertTrue(mb_strlen($hash) >= 8);
-        $this->assertRegExp('~[a-f0-9]~', $hash);
-        $this->assertSame($hash, $instance->getHash());
+    /**
+     * @deprecated
+     *
+     * @return void
+     */
+    public function testGetContent(): void
+    {
+        $content = $this->reference->getContent();
 
-        $this->assertSame($path, $instance->getFilePath());
+        $this->assertIsArray($content);
 
-        $this->assertIsArray($content = $instance->getContent());
-        $this->assertNotEmpty($content);
-        $this->assertSame($content, $instance->getContent());
+        $this->assertArrayHasKey('foo', $content[0]);
+        $this->assertSame(1, $content[0]['foo']);
+
+        $this->assertArrayHasKey('foo', $content[1]);
+        $this->assertSame(2, $content[1]['foo']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetDataAsArray(): void
+    {
+        $as_array = $this->reference->getData(true);
+
+        $this->assertIsArray($as_array[0]);
+        $this->assertSame(1, $as_array[0]['foo']);
+        $this->assertSame(2, $as_array[1]['foo']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetDataAsObject(): void
+    {
+        $as_object = $this->reference->getData(false);
+
+        $this->assertIsObject($as_object[0]);
+        $this->assertSame(1, $as_object[0]->foo);
+        $this->assertSame(2, $as_object[1]->foo);
     }
 }

@@ -41,6 +41,10 @@ StaticReferencesData::getVehicleTypes();
 StaticReferencesData::getCadastralDistricts();
 ```
 
+### Using CDN
+
+You can use HTTP for fetching references data using <https://jsdelivr.com>. For example, open in your browser next link: <https://cdn.jsdelivr.net/gh/avto-dev/static-references-data@2/data/> and find required file. More documentation [can be found here](https://jsdelivr.com/features#gh).
+
 ### Testing
 
 For package testing we use `phpunit` framework. Just write into your terminal:
