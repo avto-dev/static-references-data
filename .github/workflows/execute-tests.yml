@@ -19,7 +19,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         setup: ['basic', 'lowest']
         php: ['7.1', '7.2', '7.3', '7.4']
         include:
-          - php: '5.6'
+          - php: '7.1'
             setup: 'basic'
             coverage: 'true'
           - php: '7.4'
@@ -71,6 +71,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         run: composer test-cover
 
       - uses: codecov/codecov-action@v1 # Docs: <https://github.com/codecov/codecov-action>
+        if: matrix.coverage == 'true'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./sdk/php/coverage/clover.xml
