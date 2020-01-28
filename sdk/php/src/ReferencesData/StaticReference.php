@@ -68,7 +68,7 @@ class StaticReference implements StaticReferenceInterface
      */
     public function getContent(bool $as_array = true, int $options = 0)
     {
-        /** @var mixed[]|object $data */
+        /** @var mixed[]|object[]|object $data */
         $data = Json::decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
 
         return $data;
