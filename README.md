@@ -47,12 +47,12 @@ You can use HTTP for fetching references data using <https://jsdelivr.com>. For 
 
 ### Testing
 
-For package testing we use `phpunit` framework. Just write into your terminal:
+For package testing we use `phpunit` framework and `docker-ce` + `docker-compose` as develop environment. So, just write into your terminal after repository cloning:
 
 ```shell
-$ git clone git@github.com:avto-dev/static-references-data.git ./static-references-data && cd $_
-$ composer install
-$ composer test
+$ make build
+$ make latest # or 'make lowest'
+$ make test
 ```
 
 ## Changes log
