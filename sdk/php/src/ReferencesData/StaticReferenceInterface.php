@@ -25,6 +25,8 @@ interface StaticReferenceInterface
      *
      * @throws Exception
      *
+     * @deprecated since v3 this method will be replaced with `::getData(bool $as_array = true, int $options = 0)`
+     *
      * @return mixed[]|object[]|object
      */
     public function getContent();

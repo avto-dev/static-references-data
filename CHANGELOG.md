@@ -18,6 +18,10 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 - (PHP SDK) `phpstan/phpstan` package for static code analyzer
 - (PHP SDK) Strict types and type-hinting
 
+### Deprecated
+
+- (PHP SDK) `StaticReference::getContent()`  will be replaced with `::getData(bool $as_array = true, int $options = 0)` since `v3`
+
 ## v2.13.0
 
 ### Added
