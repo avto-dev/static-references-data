@@ -43,11 +43,6 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
-     * @return string
-     */
-    abstract protected function getDirectoryPath(): string;
-
-    /**
      * @return void
      */
     public function testFileExists(): void
@@ -79,17 +74,37 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     }
 
     /**
-     * @return string
-     */
-    abstract protected function getFilePath(): string;
-
-    /**
      * @return void
      */
     public function testEntityCount(): void
     {
         $this->assertGreaterThanOrEqual($this->getExpectedEntityCount(), \count($this->getReferenceContent(true)));
     }
+
+    /**
+     * @return void
+     */
+    public function testEntityPresents(): void
+    {
+        foreach ($this->getEntities() as $entity) {
+            $this->assertContains($entity, $this->getReferenceContent(true));
+        }
+    }
+
+    /**
+     * @return void
+     */
+    abstract public function testFileStricture(): void;
+
+    /**
+     * @return string
+     */
+    abstract protected function getDirectoryPath(): string;
+
+    /**
+     * @return string
+     */
+    abstract protected function getFilePath(): string;
 
     /**
      * @return int
@@ -104,22 +119,7 @@ abstract class AbstractDataFilesTest extends AbstractTestCase
     abstract protected function getReferenceContent(bool $as_array);
 
     /**
-     * @return void
-     */
-    public function testEntityPresents(): void
-    {
-        foreach ($this->getEntities() as $entity) {
-            $this->assertContains($entity, $this->getReferenceContent(true));
-        }
-    }
-
-    /**
      * @return array
      */
     abstract protected function getEntities(): array;
-
-    /**
-     * @return void
-     */
-    abstract public function testFileStricture(): void;
 }
