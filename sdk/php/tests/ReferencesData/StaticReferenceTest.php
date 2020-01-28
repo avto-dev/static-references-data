@@ -20,7 +20,7 @@ class StaticReferenceTest extends AbstractTestCase
     protected $reference;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function setUp(): void
     {
