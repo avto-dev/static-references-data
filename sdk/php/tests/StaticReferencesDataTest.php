@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace AvtoDev\StaticReferencesData\Tests;
 
 use InvalidArgumentException;
+use Tarampampam\Wrappers\Json;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
 class StaticReferencesDataTest extends AbstractTestCase
@@ -40,14 +41,25 @@ class StaticReferencesDataTest extends AbstractTestCase
     public function testGetAutoCategories(): void
     {
         $this->assertEquals(
-            \json_decode(
+            $data = \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/auto_categories/auto_categories.json'
                 )),
                 true
             ),
-            $this->instance::getAutoCategories()->getContent()
+            $this->instance::getAutoCategories()->getData()
         );
+
+        $codes = [];
+
+        foreach ($data as $datum) {
+            $this->assertIsString($code = $datum['code']);
+            $this->assertIsString($datum['description']);
+
+            $this->assertNotContains($code, $codes, "Duplicated code found: {$code}");
+
+            $codes[] = $code;
+        }
     }
 
     /**
@@ -66,14 +78,52 @@ class StaticReferencesDataTest extends AbstractTestCase
     public function testGetAutoRegions(): void
     {
         $this->assertEquals(
-            \json_decode(
+            $data = \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
                     '/data/auto_regions/auto_regions.json'
                 )),
                 true
             ),
-            $this->instance::getAutoRegions()->getContent()
+            $this->instance::getAutoRegions()->getData()
         );
+
+        \usort($data, static function ($a, $b) {
+            return $a['code'] <=> $b['code'];
+        });
+
+dd(file_put_contents(__DIR__ . '/out.json', Json::encode($data, JSON_UNESCAPED_UNICODE)));
+        $codes = $gibdds = $okatos = $iso_31662s = [];
+
+        foreach ($data as $datum) {
+            $this->assertIsString($datum['title']);
+            $this->assertIsArray($datum['short']);
+
+            foreach ($datum['short'] as $item) {
+                $this->assertIsString($item);
+            }
+
+            $this->assertIsInt($code = $datum['code']);
+            $this->assertNotContains($code, $codes, "Duplicated code found: {$code}");
+            $codes[] = $code;
+
+            $this->assertIsArray($gibdd = $datum['gibdd']);
+
+            foreach ($gibdd as $item) {
+                $this->assertIsInt($item);
+                $this->assertNotContains($item, $gibdds, "Duplicated gibdd code found: {$item}");
+                $gibdds[] = $item;
+            }
+
+            $this->assertIsString($okato = $datum['okato']);
+            $this->assertNotContains($okato, $okatos, "Duplicated OKATO code found: {$okato}");
+            $okatos[] = $okato;
+
+            $this->assertIsString($iso = $datum['code_iso_31662']);
+            $this->assertNotContains($iso, $iso_31662s, "Duplicated ISO-31662 code found: {$iso}");
+            $iso_31662s[] = $iso;
+
+            $this->assertIsString($datum['type']);
+        }
     }
 
     /**
@@ -98,7 +148,7 @@ class StaticReferencesDataTest extends AbstractTestCase
                 )),
                 true
             ),
-            $this->instance::getRegistrationActions()->getContent()
+            $this->instance::getRegistrationActions()->getData()
         );
     }
 
@@ -124,7 +174,7 @@ class StaticReferencesDataTest extends AbstractTestCase
                 )),
                 true
             ),
-            $this->instance::getRepairMethods()->getContent()
+            $this->instance::getRepairMethods()->getData()
         );
     }
 
@@ -150,7 +200,7 @@ class StaticReferencesDataTest extends AbstractTestCase
                 )),
                 true
             ),
-            $this->instance::getAutoFines()->getContent()
+            $this->instance::getAutoFines()->getData()
         );
     }
 
@@ -176,7 +226,7 @@ class StaticReferencesDataTest extends AbstractTestCase
                 )),
                 true
             ),
-            $this->instance::getVehicleTypes()->getContent()
+            $this->instance::getVehicleTypes()->getData()
         );
     }
 
@@ -193,16 +243,16 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * @return void
      */
-    public function testGetCadastralDistricts(): void
+    public function testGetCadastralRegions(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/cadastral_districts/cadastral_districts.json'
+                    '/data/cadastral_regions/cadastral_regions.json'
                 )),
                 true
             ),
-            $this->instance::getCadastralDistricts()->getContent()
+            $this->instance::getCadastralRegions()->getData()
         );
     }
 

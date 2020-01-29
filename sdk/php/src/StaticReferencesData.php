@@ -42,6 +42,8 @@ class StaticReferencesData
     /**
      * Returns static reference named `auto regions`.
      *
+     * @link <https://bit.ly/2U7a91J>
+     *
      * @param string $file_name
      *
      * @throws Exception
@@ -110,7 +112,7 @@ class StaticReferencesData
     }
 
     /**
-     * Returns static reference named `cadastral districts`.
+     * Returns static reference named `cadastral regions`.
      *
      * @param string $file_name
      *
@@ -118,8 +120,8 @@ class StaticReferencesData
      *
      * @return StaticReference
      */
-    public static function getCadastralDistricts(string $file_name = 'cadastral_districts.json'): StaticReference
+    public static function getCadastralRegions(string $file_name = 'cadastral_regions.json'): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/cadastral_districts/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath("/data/cadastral_regions/{$file_name}"));
     }
 }

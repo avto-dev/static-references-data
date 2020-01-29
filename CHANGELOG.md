@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.0.0
+
+### Changed
+
+- Directory `./data/cadastral_districts` renamed to `./data/cadastral_regions`
+- File `cadastral_districts.json` renamed to `cadastral_regions.json`
+- File `cadastral_regions.json` now contains array of objects _(previously it was object with objects inside)_ [#24]
+- Codes in `cadastral_regions.json` is integer type now _(previously it was strings)_ [#24]
+- District codes in `cadastral_regions.json` is integer now _(previously it was strings)_ [#24]
+- (PHP SDK) `StaticReference::getHash()` and `StaticReferenceInterface::getFilePath()` methods have strict return type
+- (PHP SDK) Method `::getCadastralDistricts()` in `StaticReferencesData` renamed to `::getCadastralRegions()` 
+
+### Removed
+
+- (PHP SDK) `StaticReference::getContent()` and `StaticReferenceInterface::getContent()`
+
+[#24]:https://github.com/avto-dev/static-references-data/pull/24
+
 ## v2.14.0
 
 ### Changed

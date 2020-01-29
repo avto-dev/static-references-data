@@ -71,7 +71,7 @@ class StaticReferenceTest extends AbstractTestCase
      */
     public function testGetContent(): void
     {
-        $content = $this->reference->getContent();
+        $content = $this->reference->getData();
 
         $this->assertIsArray($content);
 

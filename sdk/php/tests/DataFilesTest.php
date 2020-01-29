@@ -40,7 +40,7 @@ class DataFilesTest extends AbstractTestCase
             "{$data_path}/auto_regions/auto_regions.json" => [
                 '*' => ['title', 'short', 'code', 'gibdd', 'okato', 'code_iso_31662', 'type'],
             ],
-            "{$data_path}/cadastral_districts/cadastral_districts.json" => [
+            "{$data_path}/cadastral_regions/cadastral_regions.json" => [
                 '*' => ['code', 'name', 'districts' => ['*' => ['code', 'name']]],
             ],
             "{$data_path}/registration_actions/registration_actions.json" => [
