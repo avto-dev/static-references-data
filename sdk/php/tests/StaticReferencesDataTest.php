@@ -91,7 +91,7 @@ class StaticReferencesDataTest extends AbstractTestCase
             return $a['code'] <=> $b['code'];
         });
 
-dd(file_put_contents(__DIR__ . '/out.json', Json::encode($data, JSON_UNESCAPED_UNICODE)));
+        dd(file_put_contents(__DIR__ . '/out.json', Json::encode($data, JSON_UNESCAPED_UNICODE)));
         $codes = $gibdds = $okatos = $iso_31662s = [];
 
         foreach ($data as $datum) {
