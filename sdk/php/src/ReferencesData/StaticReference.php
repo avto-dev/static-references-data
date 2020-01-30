@@ -61,26 +61,14 @@ class StaticReference implements StaticReferenceInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated since v3 this method will be replaced with `::getData(bool $as_array = true, int $options = 0)`
-     *
-     * @throws JsonEncodeDecodeException
-     */
-    public function getContent(): array
-    {
-        return (array) $this->getData(true);
-    }
-
-    /**
-     * Returns source content as abjects or associative arrays.
+     * Returns source content as objects or associative arrays.
      *
      * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
      * @param int  $options  Bitmask of JSON decode options
      *
      * @throws JsonEncodeDecodeException
      *
-     * @return mixed[]|object[]|object
+     * @return array[]|object[]|array|object
      */
     public function getData(bool $as_array = true, int $options = 0)
     {

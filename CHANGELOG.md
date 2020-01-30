@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.0.0
+
+### Added
+
+- Json-schemas for each json file in `./data` directory
+
+### Changed
+
+- File locations:
+  - `./data/auto_categories/auto_categories.json` &rarr; `./data/vehicle/categories.json`
+  - `./data/vehicle_types/vehicle_types.json` &rarr; `./data/vehicle/types.json`
+  - `./data/auto_fines/auto_fines.json` &rarr; `./data/vehicle/fine/articles.json`
+  - `./data/auto_regions/auto_regions.json` &rarr; `./data/subject/codes.json`
+  - `./data/cadastral_districts/cadastral_districts.json` &rarr; `./data/cadastral/districts.json`
+  - `./data/registration_actions/registration_actions.json` &rarr; `./data/vehicle/registration/actions.json`
+  - `./data/repair_methods/repair_methods.json` &rarr; `./data/vehicle/repair/methods.json`
+- Object properties `districts` renamed to `areas` in `./data/cadastral/districts.json`
+- Object properties `code` and `areas.*.code` now integers in `./data/cadastral/districts.json`
+- (PHP SDK) Methods in `StaticReferencesData` renamed and does not accept any arguments:
+  - `::getAutoCategories()` &rarr; `::vehicleCategories()`
+  - `::getAutoRegions()` &rarr; `::subjectCodes()`
+  - `::getRegistrationActions()` &rarr; `::vehicleRegistrationActions()`
+  - `::getRepairMethods()` &rarr; `::vehicleRepairMethods()`
+  - `::getAutoFines()` &rarr; `::vehicleFineArticles()`
+  - `::getVehicleTypes()` &rarr; `::vehicleTypes()`
+  - `::getCadastralDistricts()` &rarr; `::cadastralDistricts()`
+- (PHP SDK) Return value type for methods `->getHash()` and `->getFilePath()` in `StaticReferenceInterface`
+
+### Removed
+
+- Object properties `short`, `okato` and `type` removed from `./data/subject/codes.json`
+- (PHP SDK) `StaticReference::getContent()` and `StaticReferenceInterface::getContent()`
+
 ## v2.14.0
 
 ### Changed

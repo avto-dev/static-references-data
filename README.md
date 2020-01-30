@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://habrastorage.org/webt/59/e8/90/59e89034d07c7166044069.png" width="70" height="70" />
+  <img alt="logo" src="https://habrastorage.org/webt/59/e8/90/59e89034d07c7166044069.png" width="100" height="100" />
 </p>
 
 # Static references data
@@ -20,7 +20,7 @@ This repository contains regularly updated static references data.
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/static-references-data "^2.14"
+$ composer require avto-dev/static-references-data "^3.0"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
@@ -32,20 +32,20 @@ After that you can read references data using following methods:
 ```php
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
-StaticReferencesData::getAutoCategories();
-StaticReferencesData::getAutoRegions();
-StaticReferencesData::getRegistrationActions();
-StaticReferencesData::getRepairMethods();
-StaticReferencesData::getAutoFines();
-StaticReferencesData::getVehicleTypes();
-StaticReferencesData::getCadastralDistricts();
+StaticReferencesData::cadastralDistricts();
+StaticReferencesData::subjectCodes();
+StaticReferencesData::vehicleFineArticles();
+StaticReferencesData::vehicleRegistrationActions();
+StaticReferencesData::vehicleRepairMethods();
+StaticReferencesData::vehicleCategories();
+StaticReferencesData::vehicleTypes();
 ```
 
 ### Using CDN
 
 [![](https://data.jsdelivr.com/v1/package/gh/avto-dev/static-references-data/badge)](https://www.jsdelivr.com/package/gh/avto-dev/static-references-data)
 
-You can use HTTP for fetching references data using <https://jsdelivr.com>. For example, open in your browser **[this link](https://www.jsdelivr.com/package/gh/avto-dev/static-references-data?path=data)** and find required file. More documentation [can be found here](https://jsdelivr.com/features#gh).
+You can use HTTP for fetching references data using [jsdelivr.com](https://jsdelivr.com). Just open in your browser **[this link](https://www.jsdelivr.com/package/gh/avto-dev/static-references-data?path=data)** and find required file. More documentation [can be found here](https://jsdelivr.com/features#gh).
 
 ### Testing
 

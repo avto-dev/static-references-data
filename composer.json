@@ -20,8 +20,9 @@
     },
     "require-dev": {
         "ext-json": "*",
-        "phpunit/phpunit": "~7.5",
+        "opis/json-schema": "^1.0.3",
         "phpstan/phpstan": "~0.12",
+        "phpunit/phpunit": "~7.5",
         "symfony/var-dumper": "~3.2 || ^4.0"
     },
     "autoload": {
@@ -35,7 +36,7 @@
         }
     },
     "scripts": {
-        "phpunit": "@php ./vendor/bin/phpunit -c ./sdk/php/phpunit.xml.dist --no-coverage",
+        "phpunit": "@php ./vendor/bin/phpunit -c ./sdk/php/phpunit.xml.dist --no-coverage --colors=always",
         "phpunit-cover": "@php ./vendor/bin/phpunit -c ./sdk/php/phpunit.xml.dist --coverage-html='./sdk/php/coverage/html'",
         "phpstan": "@php ./vendor/bin/phpstan analyze -c ./sdk/php/phpstan.neon.dist --no-progress --ansi",
         "test": [

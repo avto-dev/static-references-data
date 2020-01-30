@@ -4,9 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use InvalidArgumentException;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
+/**
+ * @covers \AvtoDev\StaticReferencesData\StaticReferencesData
+ */
 class StaticReferencesDataTest extends AbstractTestCase
 {
     /**
@@ -37,182 +39,112 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * @return void
      */
-    public function testGetAutoCategories(): void
+    public function testCadastralDistricts(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_categories/auto_categories.json'
+                    '/data/cadastral/districts.json'
                 )),
                 true
             ),
-            $this->instance::getAutoCategories()->getContent()
+            $this->instance::cadastralDistricts()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoCategoriesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoCategories('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoRegions(): void
+    public function testSubjectCodes(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_regions/auto_regions.json'
+                    '/data/subject/codes.json'
                 )),
                 true
             ),
-            $this->instance::getAutoRegions()->getContent()
+            $this->instance::subjectCodes()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoRegionsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoRegions('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetRegistrationActions(): void
+    public function testVehicleFineArticles(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/registration_actions/registration_actions.json'
+                    '/data/vehicle/fine/articles.json'
                 )),
                 true
             ),
-            $this->instance::getRegistrationActions()->getContent()
+            $this->instance::vehicleFineArticles()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRegistrationActionsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getRegistrationActions('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetRepairMethods(): void
+    public function testVehicleRegistrationActions(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/repair_methods/repair_methods.json'
+                    '/data/vehicle/registration/actions.json'
                 )),
                 true
             ),
-            $this->instance::getRepairMethods()->getContent()
+            $this->instance::vehicleRegistrationActions()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRepairMethodsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getRepairMethods('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoFines(): void
+    public function testVehicleRepairMethods(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_fines/auto_fines.json'
+                    '/data/vehicle/repair/methods.json'
                 )),
                 true
             ),
-            $this->instance::getAutoFines()->getContent()
+            $this->instance::vehicleRepairMethods()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoFinesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoFines('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetVehicleTypes(): void
+    public function testVehicleCategories(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/vehicle_types/vehicle_types.json'
+                    '/data/vehicle/categories.json'
                 )),
                 true
             ),
-            $this->instance::getVehicleTypes()->getContent()
+            $this->instance::vehicleCategories()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetVehicleTypesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getVehicleTypes('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetCadastralDistricts(): void
+    public function testVehicleTypes(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/cadastral_districts/cadastral_districts.json'
+                    '/data/vehicle/types.json'
                 )),
                 true
             ),
-            $this->instance::getCadastralDistricts()->getContent()
+            $this->instance::vehicleTypes()->getData()
         );
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetCadastralDistrictsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getVehicleTypes('foo bar');
     }
 }

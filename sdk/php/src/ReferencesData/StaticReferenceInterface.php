@@ -11,35 +11,24 @@ interface StaticReferenceInterface
      *
      * @return string
      */
-    public function getHash();
+    public function getHash(): string;
 
     /**
      * Returns source file path.
      *
      * @return string
      */
-    public function getFilePath();
+    public function getFilePath(): string;
 
     /**
-     * Returns source content as an array.
+     * Returns source content as objects or associative arrays.
+     *
+     * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
+     * @param int  $options  Bitmask of JSON decode options
      *
      * @throws Exception
      *
-     * @deprecated since v3 this method will be replaced with `::getData(bool $as_array = true, int $options = 0)`
-     *
-     * @return mixed[]
+     * @return mixed[]|object[]|object
      */
-    public function getContent();
-
-    ///**
-    // * Returns source content as abjects or associative arrays.
-    // *
-    // * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
-    // * @param int  $options  Bitmask of JSON decode options
-    // *
-    // * @throws Exception
-    // *
-    // * @return mixed[]|object[]|object
-    // */
-    //public function getData(bool $as_array = true, int $options = 0);
+    public function getData(bool $as_array = true, int $options = 0);
 }

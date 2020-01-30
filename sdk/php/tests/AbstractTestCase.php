@@ -4,9 +4,7 @@ declare(strict_types = 1);
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use PHPUnit\Framework\TestCase;
-
-abstract class AbstractTestCase extends TestCase
+abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @return string
