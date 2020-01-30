@@ -69,7 +69,7 @@ class StaticReferenceTest extends AbstractTestCase
      *
      * @return void
      */
-    public function testGetContent(): void
+    public function testGetData(): void
     {
         $content = $this->reference->getData();
 

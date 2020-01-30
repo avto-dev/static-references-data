@@ -21,7 +21,7 @@ interface StaticReferenceInterface
     public function getFilePath(): string;
 
     /**
-     * Returns source content as abjects or associative arrays.
+     * Returns source content as objects or associative arrays.
      *
      * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
      * @param int  $options  Bitmask of JSON decode options
