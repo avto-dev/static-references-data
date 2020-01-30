@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "minLength": 1,
+    "items": {
+        "type": "object",
+        "properties": {
+            "code": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+            },
+            "title": {
+                "type": "string",
+                "minLength": 4
+            },
+            "group_title": {
+                "type": "string",
+                "minLength": 4
+            },
+            "group_slug": {
+                "type": "string",
+                "enum": [
+                    "trucks",
+                    "buses",
+                    "specialized_vehicles",
+                    "mototransport",
+                    "trailers",
+                    "semitrailers",
+                    "cars"
+                ]
+            }
+        },
+        "additionalProperties": false
+    }
+}

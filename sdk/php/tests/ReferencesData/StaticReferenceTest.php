@@ -10,7 +10,7 @@ use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
 
 /**
- * @covers \AvtoDev\StaticReferencesData\ReferencesData\StaticReference<extended>
+ * @covers \AvtoDev\StaticReferencesData\ReferencesData\StaticReference
  */
 class StaticReferenceTest extends AbstractTestCase
 {

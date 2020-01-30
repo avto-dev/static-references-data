@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace AvtoDev\StaticReferencesData;
 
-use Exception;
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
 
 class StaticReferencesData
@@ -26,102 +25,74 @@ class StaticReferencesData
     }
 
     /**
-     * Returns static reference named `auto categories`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get cadastral districts reference.
      *
      * @return StaticReference
      */
-    public static function getAutoCategories(string $file_name = 'auto_categories.json'): StaticReference
+    public static function cadastralDistricts(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/auto_categories/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/cadastral/districts.json'));
     }
 
     /**
-     * Returns static reference named `auto regions`.
+     * Get subject codes reference.
      *
-     * @link <https://bit.ly/2U7a91J>
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * @link <https://bit.ly/2GB3bda>
      *
      * @return StaticReference
      */
-    public static function getAutoRegions(string $file_name = 'auto_regions.json'): StaticReference
+    public static function subjectCodes(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/auto_regions/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/subject/codes.json'));
     }
 
     /**
-     * Returns static reference named `registration actions`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get vehicle fine articles reference.
      *
      * @return StaticReference
      */
-    public static function getRegistrationActions(string $file_name = 'registration_actions.json'): StaticReference
+    public static function vehicleFineArticles(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/registration_actions/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/fine/articles.json'));
     }
 
     /**
-     * Returns static reference named `repair methods`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get vehicle registration actions reference.
      *
      * @return StaticReference
      */
-    public static function getRepairMethods(string $file_name = 'repair_methods.json'): StaticReference
+    public static function vehicleRegistrationActions(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/repair_methods/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/registration/actions.json'));
     }
 
     /**
-     * Returns static reference named `auto fines`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get vehicle repair methods reference.
      *
      * @return StaticReference
      */
-    public static function getAutoFines(string $file_name = 'auto_fines.json'): StaticReference
+    public static function vehicleRepairMethods(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/auto_fines/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/repair/methods.json'));
     }
 
     /**
-     * Returns static reference named `vehicle types`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get vehicle categories reference.
      *
      * @return StaticReference
      */
-    public static function getVehicleTypes(string $file_name = 'vehicle_types.json'): StaticReference
+    public static function vehicleCategories(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/vehicle_types/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/categories.json'));
     }
 
     /**
-     * Returns static reference named `cadastral regions`.
-     *
-     * @param string $file_name
-     *
-     * @throws Exception
+     * Get vehicle types reference.
      *
      * @return StaticReference
      */
-    public static function getCadastralRegions(string $file_name = 'cadastral_regions.json'): StaticReference
+    public static function vehicleTypes(): StaticReference
     {
-        return new StaticReference(static::getRootDirectoryPath("/data/cadastral_regions/{$file_name}"));
+        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/types.json'));
     }
 }

@@ -4,10 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\StaticReferencesData\Tests;
 
-use InvalidArgumentException;
-use Tarampampam\Wrappers\Json;
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
+/**
+ * @covers \AvtoDev\StaticReferencesData\StaticReferencesData
+ */
 class StaticReferencesDataTest extends AbstractTestCase
 {
     /**
@@ -38,231 +39,112 @@ class StaticReferencesDataTest extends AbstractTestCase
     /**
      * @return void
      */
-    public function testGetAutoCategories(): void
-    {
-        $this->assertEquals(
-            $data = \json_decode(
-                \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_categories/auto_categories.json'
-                )),
-                true
-            ),
-            $this->instance::getAutoCategories()->getData()
-        );
-
-        $codes = [];
-
-        foreach ($data as $datum) {
-            $this->assertIsString($code = $datum['code']);
-            $this->assertIsString($datum['description']);
-
-            $this->assertNotContains($code, $codes, "Duplicated code found: {$code}");
-
-            $codes[] = $code;
-        }
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoCategoriesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoCategories('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoRegions(): void
-    {
-        $this->assertEquals(
-            $data = \json_decode(
-                \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_regions/auto_regions.json'
-                )),
-                true
-            ),
-            $this->instance::getAutoRegions()->getData()
-        );
-
-        \usort($data, static function ($a, $b) {
-            return $a['code'] <=> $b['code'];
-        });
-
-        dd(file_put_contents(__DIR__ . '/out.json', Json::encode($data, JSON_UNESCAPED_UNICODE)));
-        $codes = $gibdds = $okatos = $iso_31662s = [];
-
-        foreach ($data as $datum) {
-            $this->assertIsString($datum['title']);
-            $this->assertIsArray($datum['short']);
-
-            foreach ($datum['short'] as $item) {
-                $this->assertIsString($item);
-            }
-
-            $this->assertIsInt($code = $datum['code']);
-            $this->assertNotContains($code, $codes, "Duplicated code found: {$code}");
-            $codes[] = $code;
-
-            $this->assertIsArray($gibdd = $datum['gibdd']);
-
-            foreach ($gibdd as $item) {
-                $this->assertIsInt($item);
-                $this->assertNotContains($item, $gibdds, "Duplicated gibdd code found: {$item}");
-                $gibdds[] = $item;
-            }
-
-            $this->assertIsString($okato = $datum['okato']);
-            $this->assertNotContains($okato, $okatos, "Duplicated OKATO code found: {$okato}");
-            $okatos[] = $okato;
-
-            $this->assertIsString($iso = $datum['code_iso_31662']);
-            $this->assertNotContains($iso, $iso_31662s, "Duplicated ISO-31662 code found: {$iso}");
-            $iso_31662s[] = $iso;
-
-            $this->assertIsString($datum['type']);
-        }
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoRegionsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoRegions('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetRegistrationActions(): void
+    public function testCadastralDistricts(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/registration_actions/registration_actions.json'
+                    '/data/cadastral/districts.json'
                 )),
                 true
             ),
-            $this->instance::getRegistrationActions()->getData()
+            $this->instance::cadastralDistricts()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRegistrationActionsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getRegistrationActions('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetRepairMethods(): void
+    public function testSubjectCodes(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/repair_methods/repair_methods.json'
+                    '/data/subject/codes.json'
                 )),
                 true
             ),
-            $this->instance::getRepairMethods()->getData()
+            $this->instance::subjectCodes()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetRepairMethodsWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getRepairMethods('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetAutoFines(): void
+    public function testVehicleFineArticles(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/auto_fines/auto_fines.json'
+                    '/data/vehicle/fine/articles.json'
                 )),
                 true
             ),
-            $this->instance::getAutoFines()->getData()
+            $this->instance::vehicleFineArticles()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetAutoFinesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getAutoFines('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetVehicleTypes(): void
+    public function testVehicleRegistrationActions(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/vehicle_types/vehicle_types.json'
+                    '/data/vehicle/registration/actions.json'
                 )),
                 true
             ),
-            $this->instance::getVehicleTypes()->getData()
+            $this->instance::vehicleRegistrationActions()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetVehicleTypesWithInvalidFileName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->instance::getVehicleTypes('foo bar');
-    }
-
-    /**
-     * @return void
-     */
-    public function testGetCadastralRegions(): void
+    public function testVehicleRepairMethods(): void
     {
         $this->assertEquals(
             \json_decode(
                 \file_get_contents($this->instance::getRootDirectoryPath(
-                    '/data/cadastral_regions/cadastral_regions.json'
+                    '/data/vehicle/repair/methods.json'
                 )),
                 true
             ),
-            $this->instance::getCadastralRegions()->getData()
+            $this->instance::vehicleRepairMethods()->getData()
         );
     }
 
     /**
      * @return void
      */
-    public function testGetCadastralDistrictsWithInvalidFileName(): void
+    public function testVehicleCategories(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->assertEquals(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
+                    '/data/vehicle/categories.json'
+                )),
+                true
+            ),
+            $this->instance::vehicleCategories()->getData()
+        );
+    }
 
-        $this->instance::getVehicleTypes('foo bar');
+    /**
+     * @return void
+     */
+    public function testVehicleTypes(): void
+    {
+        $this->assertEquals(
+            \json_decode(
+                \file_get_contents($this->instance::getRootDirectoryPath(
+                    '/data/vehicle/types.json'
+                )),
+                true
+            ),
+            $this->instance::vehicleTypes()->getData()
+        );
     }
 }
