@@ -32,13 +32,13 @@ After that you can read references data using following methods:
 ```php
 use AvtoDev\StaticReferencesData\StaticReferencesData;
 
-StaticReferencesData::getAutoCategories();
-StaticReferencesData::getAutoRegions();
-StaticReferencesData::getRegistrationActions();
-StaticReferencesData::getRepairMethods();
-StaticReferencesData::getAutoFines();
-StaticReferencesData::getVehicleTypes();
-StaticReferencesData::getCadastralRegions();
+StaticReferencesData::cadastralDistricts();
+StaticReferencesData::subjectCodes();
+StaticReferencesData::vehicleFineArticles();
+StaticReferencesData::vehicleRegistrationActions();
+StaticReferencesData::vehicleRepairMethods();
+StaticReferencesData::vehicleCategories();
+StaticReferencesData::vehicleTypes();
 ```
 
 ### Using CDN
