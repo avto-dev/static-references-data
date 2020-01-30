@@ -7,6 +7,7 @@
         "properties": {
             "codes": {
                 "type": "array",
+                "uniqueItems": true,
                 "items": {
                     "type": "integer",
                     "minimum": 1
