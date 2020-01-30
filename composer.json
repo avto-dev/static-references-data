@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "ext-json": "*",
-        "opis/json-schema": "^1.0",
+        "opis/json-schema": "^1.0.3",
         "phpstan/phpstan": "~0.12",
         "phpunit/phpunit": "~7.5",
         "symfony/var-dumper": "~3.2 || ^4.0"

@@ -7,7 +7,7 @@ namespace AvtoDev\StaticReferencesData\Tests;
 use Opis\JsonSchema\Schema;
 use Opis\JsonSchema\Validator;
 
-class DataFollowsSchemasTest extends AbstractTestCase
+class JsonDataFilesFollowsSchemasTest extends AbstractTestCase
 {
     /**
      * @return void
@@ -30,13 +30,11 @@ class DataFollowsSchemasTest extends AbstractTestCase
 
                 $schema_path = \preg_replace('~^(.+)(\.json)$~i', '$1.schema$2', $path);
 
-                if (! \file_exists($schema_path)) {
-                    $this->fail("File [{$path}] does not have schema file ({$schema_path})");
-                }
+                $this->assertFileExists($schema_path, "File [{$path}] does not have schema file ({$schema_path})");
 
                 $result = $validator->schemaValidation(
-                    \json_decode(\file_get_contents($path)),
-                    new Schema(\json_decode(\file_get_contents($schema_path)))
+                    \json_decode(\file_get_contents($path), false),
+                    new Schema(\json_decode(\file_get_contents($schema_path), false))
                 );
 
                 $error_message = ($e = $result->getFirstError()) !== null
