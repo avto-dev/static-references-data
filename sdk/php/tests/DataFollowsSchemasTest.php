@@ -24,7 +24,7 @@ class DataFollowsSchemasTest extends AbstractTestCase
 
         foreach ($jsons_iterator as $paths) {
             foreach ($paths as $path) {
-                if (\substr_compare($path, $schema_postfix, -strlen($schema_postfix)) === 0) {
+                if (\substr_compare($path, $schema_postfix, -mb_strlen($schema_postfix)) === 0) {
                     continue; // skip schemas
                 }
 
