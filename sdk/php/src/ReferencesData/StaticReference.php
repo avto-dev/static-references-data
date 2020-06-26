@@ -68,7 +68,7 @@ class StaticReference implements StaticReferenceInterface
      *
      * @throws JsonEncodeDecodeException
      *
-     * @return array[]|object[]|array|object
+     * @return array[]|object[]|array<mixed>|object
      */
     public function getData(bool $as_array = true, int $options = 0)
     {
