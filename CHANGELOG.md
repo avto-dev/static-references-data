@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.2.0
+
+### Changed
+
+- Dependency `tarampampam/wrappers-php` version `~2.0` is supported
+
 ## v3.1.0
 
 ### Changed
