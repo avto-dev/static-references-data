@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ## v3.2.0
 
+### Changed
+
 - Dependency `tarampampam/wrappers-php` version `~2.0` is supported
 
 ## v3.1.0
