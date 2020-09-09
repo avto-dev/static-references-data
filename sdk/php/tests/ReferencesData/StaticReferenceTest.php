@@ -43,7 +43,7 @@ class StaticReferenceTest extends AbstractTestCase
     public function testThrowExceptionOnPassedNonExistsFile(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageRegExp('~is not readable~i');
+        $this->expectExceptionMessageMatches('~is not readable~i');
 
         new StaticReference('');
     }

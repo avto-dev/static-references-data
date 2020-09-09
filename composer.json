@@ -16,13 +16,13 @@
     ],
     "require": {
         "php": "^7.2",
-        "tarampampam/wrappers-php": "^1.2"
+        "tarampampam/wrappers-php": "^1.2 || ~2.0"
     },
     "require-dev": {
         "ext-json": "*",
         "opis/json-schema": "^1.0.8",
         "phpstan/phpstan": "~0.12",
-        "phpunit/phpunit": "~7.5"
+        "phpunit/phpunit": "^8.5.4"
     },
     "autoload": {
         "psr-4": {
