@@ -6,8 +6,6 @@ namespace AvtoDev\StaticReferencesData\ReferencesData;
 
 use RuntimeException;
 use InvalidArgumentException;
-use Tarampampam\Wrappers\Json;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 class StaticReference implements StaticReferenceInterface
 {
@@ -66,14 +64,12 @@ class StaticReference implements StaticReferenceInterface
      * @param bool $as_array When TRUE, returned objects will be converted into associative arrays
      * @param int  $options  Bitmask of JSON decode options
      *
-     * @throws JsonEncodeDecodeException
-     *
      * @return array[]|object[]|array<mixed>|object
      */
     public function getData(bool $as_array = true, int $options = 0)
     {
         /** @var mixed[]|object[]|object $data */
-        $data = Json::decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
+        $data = \json_decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
 
         return $data;
     }
