@@ -16,10 +16,9 @@
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-        "tarampampam/wrappers-php": "^1.2 || ~2.0"
+        "ext-json": "*"
     },
     "require-dev": {
-        "ext-json": "*",
         "opis/json-schema": "^1.0.8",
         "phpstan/phpstan": "~0.12.34",
         "phpunit/phpunit": "^8.5.4 || ^9.3"
