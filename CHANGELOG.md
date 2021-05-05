@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.5.0
+
+### Added
+
+- GIBDD region code for `Vologda region` - `135`
+
 ## v3.4.0
 
 ### Removed
