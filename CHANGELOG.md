@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Added
 
 - GIBDD region code for `Lipetsk region` - `148`
+- GIBDD region code for `Khabarovsk krai` - `127`
 
 ## v3.5.0
 
