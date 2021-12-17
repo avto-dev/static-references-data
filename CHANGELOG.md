@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- Vehicle registration actions codes: `1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`
+
 ## v3.7.0
 
 ### Added
