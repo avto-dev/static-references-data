@@ -168,6 +168,12 @@
         "group_slug": "specialized_vehicles"
     },
     {
+        "code": 58,
+        "title": "Пассажирские",
+        "group_title": "Специализированные автомобили",
+        "group_slug": "specialized_vehicles"
+    },
+    {
         "code": 59,
         "title": "Прочие",
         "group_title": "Специализированные автомобили",
