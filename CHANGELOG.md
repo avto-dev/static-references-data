@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## UNRELEASED
+
+### Added
+
+- GIBDD region code for `Moscow region` - `977`
+- GIBDD region `Zaporojskaja oblast` with code `185`
+- GIBDD region `Hersonskaja oblast` with code `184`
+
 ## v3.9.0
 
 ### Added
