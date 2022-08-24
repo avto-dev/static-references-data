@@ -9,8 +9,8 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Added
 
 - GIBDD region code for `Moscow region` - `977`
-- GIBDD region `Hersonskaja oblast` with code `184`
 - GIBDD region `Zaporojskaja oblast` with code `185`
+- GIBDD region `Hersonskaja oblast` with code `184`
 
 ## v3.9.0
 
