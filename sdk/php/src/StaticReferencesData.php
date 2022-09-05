@@ -5,9 +5,27 @@ declare(strict_types = 1);
 namespace AvtoDev\StaticReferencesData;
 
 use AvtoDev\StaticReferencesData\ReferencesData\StaticReference;
+use AvtoDev\StaticReferencesData\ReferencesData\StaticReferenceInterface;
 
 class StaticReferencesData
 {
+    /**
+     * @var array<string, StaticReferenceInterface>
+     */
+    private static $references;
+
+    /**
+     * Path to files with static data. Should be unique.
+     */
+    private const
+        CADASTRAL_DISTRICTS_PATH = '/data/cadastral/districts.json',
+        SUBJECT_CODES_PATH = '/data/subject/codes.json',
+        VEHICLE_FINE_ARTICLES_PATH = '/data/vehicle/fine/articles.json',
+        VEHICLE_REGISTRATION_ACTIONS_PATH = '/data/vehicle/registration/actions.json',
+        VEHICLE_REPAIR_METHODS_PATH = '/data/vehicle/repair/methods.json',
+        VEHICLE_CATEGORIES_PATH = '/data/vehicle/categories.json',
+        VEHICLE_TYPES_PATH = '/data/vehicle/types.json';
+
     /**
      * Get root references directory path.
      *
@@ -27,11 +45,13 @@ class StaticReferencesData
     /**
      * Get cadastral districts reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function cadastralDistricts(): StaticReference
+    public static function cadastralDistricts(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/cadastral/districts.json'));
+        return static::$references[static::CADASTRAL_DISTRICTS_PATH]
+            ?? static::$references[static::CADASTRAL_DISTRICTS_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::CADASTRAL_DISTRICTS_PATH));
     }
 
     /**
@@ -39,60 +59,72 @@ class StaticReferencesData
      *
      * @link <https://bit.ly/2GB3bda>
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function subjectCodes(): StaticReference
+    public static function subjectCodes(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/subject/codes.json'));
+        return static::$references[static::SUBJECT_CODES_PATH]
+            ?? static::$references[static::SUBJECT_CODES_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::SUBJECT_CODES_PATH));
     }
 
     /**
      * Get vehicle fine articles reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function vehicleFineArticles(): StaticReference
+    public static function vehicleFineArticles(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/fine/articles.json'));
+        return static::$references[static::VEHICLE_FINE_ARTICLES_PATH]
+            ?? static::$references[static::VEHICLE_FINE_ARTICLES_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::VEHICLE_FINE_ARTICLES_PATH));
     }
 
     /**
      * Get vehicle registration actions reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function vehicleRegistrationActions(): StaticReference
+    public static function vehicleRegistrationActions(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/registration/actions.json'));
+        return static::$references[static::VEHICLE_REGISTRATION_ACTIONS_PATH]
+            ?? static::$references[static::VEHICLE_REGISTRATION_ACTIONS_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::VEHICLE_REGISTRATION_ACTIONS_PATH));
     }
 
     /**
      * Get vehicle repair methods reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function vehicleRepairMethods(): StaticReference
+    public static function vehicleRepairMethods(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/repair/methods.json'));
+        return static::$references[static::VEHICLE_REPAIR_METHODS_PATH]
+            ?? static::$references[static::VEHICLE_REPAIR_METHODS_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::VEHICLE_REPAIR_METHODS_PATH));
     }
 
     /**
      * Get vehicle categories reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function vehicleCategories(): StaticReference
+    public static function vehicleCategories(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/categories.json'));
+        return static::$references[static::VEHICLE_CATEGORIES_PATH]
+            ?? static::$references[static::VEHICLE_CATEGORIES_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::VEHICLE_CATEGORIES_PATH));
     }
 
     /**
      * Get vehicle types reference.
      *
-     * @return StaticReference
+     * @return StaticReferenceInterface
      */
-    public static function vehicleTypes(): StaticReference
+    public static function vehicleTypes(): StaticReferenceInterface
     {
-        return new StaticReference(static::getRootDirectoryPath('/data/vehicle/types.json'));
+        return static::$references[static::VEHICLE_TYPES_PATH]
+            ?? static::$references[static::VEHICLE_TYPES_PATH] =
+                new StaticReference(static::getRootDirectoryPath(static::VEHICLE_TYPES_PATH));
     }
 }
