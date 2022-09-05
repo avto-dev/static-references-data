@@ -17,6 +17,13 @@ class StaticReference implements StaticReferenceInterface
     protected $file_path;
 
     /**
+     * Source data.
+     *
+     * @var mixed[]|object[]|object|null
+     */
+    protected $data;
+
+    /**
      * Create a new reference instance.
      *
      * @param string $file_path
@@ -68,9 +75,10 @@ class StaticReference implements StaticReferenceInterface
      */
     public function getData(bool $as_array = true, int $options = 0)
     {
-        /** @var mixed[]|object[]|object $data */
-        $data = \json_decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
+        if (! isset($this->data)) {
+            $this->data = \json_decode((string) \file_get_contents($this->file_path), $as_array, 512, $options);
+        }
 
-        return $data;
+        return $this->data;
     }
 }
