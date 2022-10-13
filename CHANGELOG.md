@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## UNRELEASED
+
+### Added
+
+- GIBDD region `DNR` with code `80`
+- GIBDD region `LNR` with code `81`
+- GIBDD region code for `Hersonskaja oblast` - `84`
+- GIBDD region code for `Zaporojskaja oblast` - `85`
+
+### Fixed
+
+- GIBDD region `Irkutskaja oblast` codes
+- GIBDD region `Krasnojarskij kraj` codes
+
 ## v3.10.0
 
 ### Added
