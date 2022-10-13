@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region `DNR region` with code `80`
-- GIBDD region `LNR oblast` with code `81`
+- GIBDD region `DNR` with code `80`
+- GIBDD region `LNR` with code `81`
 - GIBDD region code for `Hersonskaja oblast` - `84`
 - GIBDD region code for `Zaporojskaja oblast` - `85`
 
