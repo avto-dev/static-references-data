@@ -79,7 +79,7 @@ This is open-sourced software licensed under the [MIT License][link_license].
 [badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/static-references-data.svg?longCache=true
 [badge_build_status]:https://img.shields.io/github/actions/workflow/status/avto-dev/static-references-data/tests.yml
 [badge_coverage]:https://img.shields.io/codecov/c/github/avto-dev/static-references-data/master.svg?maxAge=60
-[badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?maxAge=180
+[badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/static-references-data.svg?maxAge=181
 [badge_license]:https://img.shields.io/packagist/l/avto-dev/static-references-data.svg?longCache=true
 [badge_release_date]:https://img.shields.io/github/release-date/avto-dev/static-references-data.svg?style=flat-square&maxAge=180
 [badge_commits_since_release]:https://img.shields.io/github/commits-since/avto-dev/static-references-data/latest.svg?style=flat-square&maxAge=180
