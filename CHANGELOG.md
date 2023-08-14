@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- GIBDD region code for `DNR` - `180`
+- GIBDD region code for `LNR` - `181`
+-
 ## v3.11.0
 
 ### Added
