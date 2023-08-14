@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 - GIBDD region code for `DNR` - `180`
 - GIBDD region code for `LNR` - `181`
--
+
 ## v3.11.0
 
 ### Added
