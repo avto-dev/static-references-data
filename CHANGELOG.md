@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region code for `DNR` - `180`
-- GIBDD region code for `LNR` - `181`
+- GIBDD region code for `DNR` - `180`.
+- GIBDD region code for `LNR` - `181`.
 
 ## v3.11.0
 
