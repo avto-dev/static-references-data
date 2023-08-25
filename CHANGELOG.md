@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- GIBDD region code for `Primorskij kraj` - `725`
+- GIBDD region code for `Penzenskaja oblast` - `158`
+- GIBDD region code for `Tjumenskaja oblast` - `172`
+- GIBDD region code for `Respublika Burjatija` - `103`
+- GIBDD region code for `Astrahanskaja oblast` - `130`
+- GIBDD region code for `Sverdlovskaja oblast` - `166`
+- GIBDD region codes for `Moskva` - `277`, `297`, `299`
+- GIBDD region code for `Novosibirskaja oblast` - `754`
+- GIBDD region code for `Udmurtskaja respublika` - `118`
+- GIBDD region code for `Nizhegorodskaja oblast` - `252`
+
 ## v3.12.0
 
 ### Added
