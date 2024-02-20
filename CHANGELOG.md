@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region codes for `Moskovskaja oblast` - `250`, `550`
+- GIBDD region codes for `Moskovskaja oblast`: `250`, `550`
 
 ## v3.13.0
 
