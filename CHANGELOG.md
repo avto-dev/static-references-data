@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region code for `Krasnodarskij kraj` - `323`
+- GIBDD region code for `Krasnodarskij krai` - `323`
 
 ## v3.15.0
 
