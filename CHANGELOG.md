@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- GIBDD region code for `Krasnojarskij kraj` - `224`
+- GIBDD region code for `Belgorodskaya oblast` - `131`
+
 ## v3.18.0
 
 ### Added
