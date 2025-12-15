@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 - GIBDD region code for `Krasnojarskij kraj` - `224`
 - GIBDD region code for `Belgorodskaya oblast` - `131`
 
+## v3.18.0
+
+### Added
+
+- GIBDD region code for `Respublika Dagestan` - `105`
+
 ## v3.17.0
 
 ### Added
