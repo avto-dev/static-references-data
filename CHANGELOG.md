@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- GIBDD region code for `Belgorodskaya oblast` - `131`
 - GIBDD region code for `Krasnojarskij kraj` - `224`
+- GIBDD region code for `Belgorodskaya oblast` - `131`
 
 ## v3.17.0
 
