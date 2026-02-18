@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- GIBDD region code for `Vladimirskaja oblast` - `133`
+
 ## v3.20.0
 
 ### Added
