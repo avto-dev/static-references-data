@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Changed
 
-- Dictionary vehicle registration actions is up to date
+- Vehicle registration actions dictionary is up to date
 
 ## v3.22.0
 
