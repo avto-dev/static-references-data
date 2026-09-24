@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Changed
+
+- Fix typos in [actions.json](data/vehicle/registration/actions.json), [types.json](data/vehicle/types.json) and [districts.json](data/cadastral/districts.json)
+
 ## v3.23.0
 
 ### Changed
