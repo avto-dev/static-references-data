@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ## v3.24.0
 
+### Added
+
+- Registration action code `51`
+
+## v3.24.0
+
 ### Changed
 
 - Fix typos in [actions.json](data/vehicle/registration/actions.json), [types.json](data/vehicle/types.json) and [districts.json](data/cadastral/districts.json)
